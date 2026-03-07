@@ -1,0 +1,4 @@
+Contact: mailto:connect@tarvan.ai
+Preferred-Languages: en
+Canonical: https://tarvan.ai/.well-known/security.txt
+Expires: 2027-03-07T00:00:00.000Z

@@ -1,0 +1,2386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TARVAN — Physical AI Intelligence Layer for Industrial Machines</title>
+<meta name="description" content="TARVAN is the Physical AI intelligence layer for industrial machines. From inspection and grading to process automation — Sense. Think. Act. Production speed.">
+<meta name="keywords" content="Physical AI, Industrial Intelligence, Machine Vision, Edge Inference, OEM Integration, Quality Inspection, Process Automation, Sorting, Grading, Path Planning">
+<meta property="og:title" content="TARVAN — Intelligence That Moves Matter.">
+<meta property="og:description" content="The plug-and-play Physical AI brain that upgrades OEM machines — inspection, grading, and process automation at production speed.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TARVAN">
+<meta property="og:url" content="https://tarvan.ai/">
+<meta property="og:image" content="https://tarvan.ai/assets/og-card.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TARVAN — Intelligence That Moves Matter.">
+<meta name="twitter:description" content="Physical AI for industrial machines. From inspection to process automation — Sense. Think. Act. At production speed.">
+<meta name="twitter:image" content="https://tarvan.ai/assets/og-card.png">
+<meta name="theme-color" content="#0A1628">
+<meta name="apple-mobile-web-app-title" content="TARVAN">
+<!-- Security headers -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; frame-src 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'none';">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+<link rel="canonical" href="https://tarvan.ai/">
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="./assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" sizes="180x180">
+<!-- Self-hosted fonts — zero third-party requests -->
+<style>
+@font-face { font-family: 'Orbitron'; font-style: normal; font-weight: 400; font-display: swap; src: url('./assets/fonts/orbitron-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Orbitron'; font-style: normal; font-weight: 500; font-display: swap; src: url('./assets/fonts/orbitron-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Orbitron'; font-style: normal; font-weight: 600; font-display: swap; src: url('./assets/fonts/orbitron-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Orbitron'; font-style: normal; font-weight: 700; font-display: swap; src: url('./assets/fonts/orbitron-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Orbitron'; font-style: normal; font-weight: 800; font-display: swap; src: url('./assets/fonts/orbitron-latin-800-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Orbitron'; font-style: normal; font-weight: 900; font-display: swap; src: url('./assets/fonts/orbitron-latin-900-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Saira'; font-style: normal; font-weight: 300; font-display: swap; src: url('./assets/fonts/saira-latin-300-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Saira'; font-style: normal; font-weight: 400; font-display: swap; src: url('./assets/fonts/saira-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Saira'; font-style: normal; font-weight: 500; font-display: swap; src: url('./assets/fonts/saira-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Saira'; font-style: normal; font-weight: 600; font-display: swap; src: url('./assets/fonts/saira-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Saira'; font-style: normal; font-weight: 700; font-display: swap; src: url('./assets/fonts/saira-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Saira'; font-style: normal; font-weight: 800; font-display: swap; src: url('./assets/fonts/saira-latin-800-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Saira'; font-style: normal; font-weight: 900; font-display: swap; src: url('./assets/fonts/saira-latin-900-normal.woff2') format('woff2'); }
+</style>
+
+<style>
+/* ═══════════════════════════════════════════════════════════
+   TARVAN CORPORATE WEBSITE — Production Build
+   Built from Final Production Lockups v1.0 + Brand Spec
+   Logo rendered via static inline SVG (no JS sinks)
+   © 2026 Seventh Horse Agri-Tech Pvt. Ltd.
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --navy: #0A1628;
+  --navy-mid: #0F1D33;
+  --navy-light: #132240;
+  --orange: #E87722;
+  --orange-dim: rgba(232, 119, 34, 0.15);
+  --white: #E8ECF1;
+  --gray: #B0BEC5;
+  --gray-dim: #5A6577;
+  --surface: #0D1829;
+  --border: rgba(255,255,255,0.06);
+  --hero-copy-x: 0px;
+  --hero-copy-y: 0px;
+  --hero-orbit-x: 0px;
+  --hero-orbit-y: 0px;
+  --hero-grid-x: 0px;
+  --hero-grid-y: 0px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Saira', sans-serif;
+  background: var(--navy);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body.nav-open { overflow: hidden; }
+main:focus { outline: none; }
+::selection { background: var(--orange); color: var(--navy); }
+
+.skip-link {
+  position: absolute; left: 24px; top: -64px; z-index: 1200;
+  padding: 12px 18px; border-radius: 8px;
+  background: var(--orange); color: var(--navy);
+  text-decoration: none; font-weight: 700; font-size: 12px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 16px; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+@media (max-width: 768px) { .container { padding: 0 24px; } }
+
+/* ─── SCROLL REVEALS ─── */
+.reveal {
+  --reveal-x: 0px;
+  --reveal-y: 40px;
+  --reveal-scale: 1;
+  opacity: 1;
+  transform: none;
+}
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translate3d(var(--reveal-x), var(--reveal-y), 0) scale(var(--reveal-scale));
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.js-reveal .reveal.visible { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+.reveal-left { --reveal-x: -36px; --reveal-y: 0px; }
+.reveal-right { --reveal-x: 36px; --reveal-y: 0px; }
+.reveal-scale { --reveal-y: 24px; --reveal-scale: 0.97; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .nav-brand,
+  .nav-links li,
+  .nav-toggle,
+  .hero-copy-stage,
+  .hero-visual-stage,
+  .scroll-indicator {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .hero-copy-shell,
+  .hero-orbital-wrap,
+  .grid-overlay,
+  .hero-atom-logo {
+    transform: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 20px 0; transition: all 0.4s ease;
+}
+nav.scrolled {
+  background: rgba(10,22,40,0.92);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border); padding: 14px 0;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 48px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 12px; text-decoration: none;
+  opacity: 0; transform: translate3d(0, -14px, 0);
+  animation: nav-item-enter 0.7s cubic-bezier(0.16,1,0.3,1) 0.05s forwards;
+}
+.nav-brand .nav-mono { display: flex; align-items: center; }
+.nav-wordmark {
+  font-family: 'Orbitron', sans-serif; font-weight: 700;
+  font-size: 18px; letter-spacing: 0.08em; color: var(--white);
+}
+.nav-links {
+  display: flex; align-items: center; gap: 36px; list-style: none;
+}
+.nav-drawer { display: flex; align-items: center; }
+.nav-close {
+  display: none; border: 0; background: transparent; color: var(--white);
+  font-family: 'Saira', sans-serif; font-weight: 600; font-size: 11px;
+  letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer;
+}
+.nav-links li {
+  opacity: 0; transform: translate3d(0, -14px, 0);
+  animation: nav-item-enter 0.7s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+.nav-links li:nth-child(1) { animation-delay: 0.12s; }
+.nav-links li:nth-child(2) { animation-delay: 0.18s; }
+.nav-links li:nth-child(3) { animation-delay: 0.24s; }
+.nav-links li:nth-child(4) { animation-delay: 0.30s; }
+.nav-links li:nth-child(5) { animation-delay: 0.36s; }
+.nav-links li:nth-child(6) { animation-delay: 0.42s; }
+.nav-links a {
+  font-weight: 500; font-size: 14px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--gray); text-decoration: none;
+  transition: color 0.3s; position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 100%; height: 1.5px; background: var(--orange);
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform 0.3s ease;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-cta {
+  font-weight: 600; font-size: 12px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--navy) !important;
+  background: var(--orange); padding: 10px 24px; border-radius: 6px;
+  text-decoration: none; transition: all 0.3s;
+}
+.nav-cta::after { display: none !important; }
+.nav-cta:hover {
+  background: #F5912E; color: var(--navy) !important;
+  transform: translateY(-1px); box-shadow: 0 4px 20px rgba(232,119,34,0.3);
+}
+
+/* Mobile nav */
+.nav-toggle {
+  display: none; background: none; border: none; cursor: pointer;
+  width: 44px; height: 44px; position: relative;
+  opacity: 0; transform: translate3d(0, -14px, 0);
+  animation: nav-item-enter 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+}
+.nav-toggle span {
+  display: block; width: 24px; height: 2px; background: var(--white);
+  position: absolute; left: 10px; transition: all 0.3s;
+}
+.nav-toggle span:nth-child(1) { top: 11px; }
+.nav-toggle span:nth-child(2) { top: 21px; }
+.nav-toggle span:nth-child(3) { top: 31px; }
+.nav-toggle.active span:nth-child(1) { top: 21px; transform: rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { top: 21px; transform: rotate(-45deg); }
+
+@media (max-width: 900px) {
+  .nav-toggle { display: block; }
+  .nav-drawer {
+    position: fixed; inset: 0; justify-content: flex-end; align-items: stretch;
+    background: rgba(10,22,40,0.55);
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+  }
+  .nav-drawer.open {
+    opacity: 1; visibility: visible; pointer-events: auto;
+  }
+  .nav-close {
+    display: inline-flex; align-items: center; justify-content: center;
+    position: absolute; top: 28px; right: 28px; z-index: 2;
+    min-width: 44px; min-height: 44px;
+  }
+  .nav-links {
+    position: relative; width: min(82vw, 320px); height: 100vh;
+    flex-direction: column; align-items: flex-start;
+    background: var(--navy-mid);
+    padding: 92px 32px 40px; gap: 24px; margin-left: auto;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    border-left: 1px solid var(--border);
+  }
+  .nav-drawer.open .nav-links { transform: translateX(0); }
+  .nav-links li {
+    width: 100%; opacity: 1; transform: none; animation: none;
+  }
+  .nav-links a {
+    display: inline-flex; min-height: 44px; align-items: center;
+  }
+  .nav-inner { padding: 0 24px; }
+}
+
+/* ═══════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════ */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  position: relative; overflow: hidden;
+}
+.hero-bg { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+.hero-bg::before {
+  content: ''; position: absolute; top: -20%; right: -10%;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(232,119,34,0.04) 0%, transparent 70%);
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+.hero-bg::after {
+  content: ''; position: absolute; bottom: -30%; left: -15%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(232,119,34,0.03) 0%, transparent 60%);
+  animation: pulse-slow 10s ease-in-out infinite reverse;
+}
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+.grid-overlay {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(232,119,34,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,119,34,0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse at 60% 50%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 60% 50%, black 20%, transparent 70%);
+  transform: translate3d(var(--hero-grid-x), var(--hero-grid-y), 0);
+  animation: grid-drift 28s linear infinite;
+  animation-play-state: paused;
+}
+@keyframes grid-drift {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 80px 80px, 80px 80px; }
+}
+.hero-content {
+  position: relative; z-index: 2; padding-top: 112px;
+  /* inherits .container: max-width 1200px, margin 0 auto, padding 0 48px */
+  /* inner elements are block-level → left-aligned by default */
+}
+.hero-copy-stage {
+  opacity: 0;
+  transform: translate3d(-44px, 18px, 0);
+  animation: hero-copy-enter 1s cubic-bezier(0.16,1,0.3,1) 0.18s forwards;
+}
+.hero-copy-shell {
+  position: relative; max-width: 560px;
+  transform: translate3d(var(--hero-copy-x), var(--hero-copy-y), 0);
+  transition: transform 220ms ease-out;
+}
+.hero-content .hero-desc { max-width: 500px; }
+.hero-content .hero-lockup { max-width: 560px; }
+.hero-content .hero-actions { max-width: 560px; }
+
+@media (min-width: 1360px) {
+  .hero-content {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding-left: clamp(124px, 12.5vw, 236px);
+    padding-right: 48px;
+  }
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; background: var(--orange-dim);
+  border: 1px solid rgba(232,119,34,0.2); border-radius: 100px; margin-bottom: 28px;
+}
+.hero-badge-dot {
+  width: 6px; height: 6px; background: var(--orange);
+  border-radius: 50%; animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+.hero-badge span {
+  font-weight: 600; font-size: 12px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--orange);
+}
+
+/* Hero lockup — L1 Primary Horizontal Full */
+.hero-lockup { margin-bottom: 28px; }
+.hero-lockup .lk-h { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.hero-lockup .lk-mono { display: flex; align-items: center; }
+.hero-lockup .lk-text-group { text-align: left; }
+.hero-lockup .lk-wordmark {
+  font-family: 'Orbitron', sans-serif; font-weight: 700;
+  font-size: clamp(40px, 6.5vw, 60px); letter-spacing: 0.08em;
+  color: var(--white); line-height: 1;
+}
+.hero-lockup .lk-slogan {
+  font-family: 'Saira', sans-serif; font-weight: 500;
+  font-size: clamp(11px, 1.5vw, 15px); letter-spacing: 0.14em;
+  color: var(--gray); text-transform: uppercase; margin-top: 6px;
+}
+
+.hero-desc {
+  font-weight: 400; font-size: 20px; color: var(--gray);
+  max-width: 580px; line-height: 1.68; margin-bottom: 32px;
+}
+.hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Saira', sans-serif; font-weight: 600; font-size: 14px;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--navy); background: var(--orange);
+  padding: 16px 32px; border-radius: 8px; text-decoration: none;
+  border: none; cursor: pointer; transition: all 0.3s;
+}
+.btn-primary:hover {
+  background: #F5912E; transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(232,119,34,0.3);
+}
+.btn-primary svg {
+  width: 16px; height: 16px;
+  animation: arrow-nudge 2.8s ease-in-out infinite;
+}
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Saira', sans-serif; font-weight: 600; font-size: 14px;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--white); background: transparent;
+  padding: 16px 32px; border-radius: 8px; text-decoration: none;
+  border: 1.5px solid rgba(255,255,255,0.15); transition: all 0.3s;
+}
+.btn-secondary:hover { border-color: var(--orange); color: var(--orange); }
+@keyframes arrow-nudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+/* Atom orbital hero visual — tight orbits hugging the heptagon */
+.hero-visual {
+  position: absolute; right: clamp(8px, 2.8vw, 40px); top: 50.5%;
+  transform: translateY(-50%); z-index: 1;
+  width: clamp(440px, 38vw, 500px); height: clamp(440px, 38vw, 500px);
+  pointer-events: none;
+}
+.hero-orbital-wrap {
+  position: relative; width: 100%; height: 100%;
+  transform: translate3d(var(--hero-orbit-x), var(--hero-orbit-y), 0);
+  transition: transform 260ms ease-out;
+}
+.hero-visual-stage {
+  width: 100%; height: 100%;
+  opacity: 0;
+  transform: translate3d(48px, 20px, 0) scale(0.94);
+  animation: hero-visual-enter 1.15s cubic-bezier(0.16,1,0.3,1) 0.28s forwards;
+}
+.hero-orbital-motion {
+  position: relative; width: 100%; height: 100%;
+  animation: orbital-breathe 12s ease-in-out infinite 1.4s;
+}
+.hero-orbital-svg {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+}
+.hero-orbital-svg use {
+  transform-origin: center;
+  animation: orbit-ring-pulse 8s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.hero-orbital-svg use:nth-of-type(2) { animation-delay: -2.6s; }
+.hero-orbital-svg use:nth-of-type(3) { animation-delay: -5.2s; }
+.orbit-ring {
+  fill: none; stroke: rgba(232,119,34,0.16); stroke-width: 1;
+  stroke-linejoin: round; stroke-linecap: round;
+}
+.orbit-dot {
+  fill: var(--orange);
+  filter: drop-shadow(0 0 10px rgba(232,119,34,0.45));
+}
+.orbit-dot.dot-sm { opacity: 0.7; }
+.orbit-dot.dot-xs { opacity: 0.52; }
+.orbital-label {
+  font-family: 'Saira', sans-serif; font-weight: 700; font-size: 12px;
+  letter-spacing: 0.2em; text-transform: uppercase; fill: var(--gray);
+  animation: orbital-label-glow 7s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.hero-atom-logo {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%); z-index: 2;
+  animation: atom-float 9s ease-in-out infinite 1.2s;
+  animation-play-state: paused;
+}
+@keyframes hero-copy-enter {
+  0% { opacity: 0; transform: translate3d(-44px, 18px, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes hero-visual-enter {
+  0% { opacity: 0; transform: translate3d(48px, 20px, 0) scale(0.94); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes orbital-breathe {
+  0%, 100% { transform: scale(0.985); }
+  50% { transform: scale(1.02); }
+}
+@keyframes orbit-ring-pulse {
+  0%, 100% { opacity: 0.45; transform: scale(0.985); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+@keyframes orbital-label-glow {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+@keyframes atom-float {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-8px); }
+}
+@media (max-width: 900px) {
+  .hero {
+    min-height: auto;
+    padding: 116px 0 72px;
+  }
+  .hero-content { padding-top: 0; }
+  .hero-copy-shell { max-width: 100%; }
+  .hero-badge { margin-bottom: 22px; }
+  .hero-lockup { margin-bottom: 22px; }
+  .hero-lockup .lk-h { gap: 14px; }
+  .hero-lockup .lk-mono svg { width: clamp(58px, 18vw, 72px); height: auto; }
+  .hero-lockup .lk-slogan { margin-top: 4px; }
+  .hero-desc {
+    font-size: 18px;
+    line-height: 1.62;
+    margin-bottom: 28px;
+  }
+  .hero-visual {
+    display: block;
+    left: 50%; right: auto; top: 52%;
+    width: clamp(248px, 70vw, 320px);
+    height: clamp(248px, 70vw, 320px);
+    transform: translate(-50%, -50%);
+    opacity: 0.16;
+    filter: saturate(0.92);
+  }
+  .hero-visual-stage {
+    animation-delay: 0.12s;
+  }
+  .orbital-label { display: none; }
+  .hero-actions {
+    width: 100%;
+  }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    width: 100%; justify-content: center;
+  }
+  .scroll-indicator { bottom: 24px; }
+}
+@media (min-width: 901px) and (max-width: 1100px) {
+  .hero-visual { width: 400px; height: 400px; right: -1%; }
+}
+
+.scroll-indicator {
+  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 2;
+  opacity: 0;
+  animation: scroll-indicator-enter 0.9s cubic-bezier(0.16,1,0.3,1) 0.9s forwards;
+}
+.scroll-indicator span {
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray);
+}
+.scroll-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--orange), transparent);
+  animation: scroll-pulse 2s ease-in-out infinite;
+  animation-play-state: paused;
+}
+@keyframes scroll-pulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+@keyframes scroll-indicator-enter {
+  0% { opacity: 0; transform: translate3d(-50%, 14px, 0); }
+  100% { opacity: 1; transform: translate3d(-50%, 0, 0); }
+}
+@keyframes nav-item-enter {
+  0% { opacity: 0; transform: translate3d(0, -14px, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+/* ═══════════════════════════════════════
+   METRICS BAR
+   ═══════════════════════════════════════ */
+.metrics-bar {
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  background: var(--surface); padding: 48px 0;
+}
+.metrics-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 32px; text-align: center;
+}
+.metric-value {
+  font-family: 'Saira', sans-serif; font-weight: 700; font-size: 36px;
+  letter-spacing: 0.04em; color: var(--orange); line-height: 1; margin-bottom: 8px;
+}
+.metric-value .unit { font-size: 16px; color: var(--gray); font-weight: 500; }
+.metric-label {
+  font-weight: 500; font-size: 13px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--gray);
+}
+@media (max-width: 768px) {
+  .metrics-grid { grid-template-columns: repeat(2,1fr); gap: 24px; }
+  .metric-value { font-size: 28px; }
+}
+
+/* ═══════════════════════════════════════
+   SECTION COMMON
+   ═══════════════════════════════════════ */
+section { padding: 120px 0; }
+.section-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-weight: 700; font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 16px;
+}
+.section-badge::before {
+  content: ''; width: 20px; height: 1.5px; background: var(--orange);
+}
+.section-title {
+  font-family: 'Saira', sans-serif; font-weight: 700;
+  font-size: clamp(32px,4.5vw,46px); line-height: 1.2;
+  color: var(--white); margin-bottom: 16px;
+}
+.section-desc {
+  font-weight: 400; font-size: 18px; color: var(--gray);
+  max-width: 600px; line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════
+   SENSE · THINK · ACT
+   ═══════════════════════════════════════ */
+#framework { background: var(--navy); }
+.sta-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+  margin-top: 56px; background: var(--border); border-radius: 16px; overflow: hidden;
+}
+.sta-card {
+  background: var(--navy-mid); padding: 48px 36px;
+  position: relative; overflow: hidden; transition: background 0.4s;
+  display: flex; flex-direction: column;
+}
+.sta-card:hover { background: var(--navy-light); }
+.sta-card::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+  background: var(--orange); transform: scaleX(0);
+  transform-origin: left; transition: transform 0.4s ease;
+}
+.sta-card:hover::before { transform: scaleX(1); }
+.sta-number {
+  font-family: 'Saira', sans-serif; font-weight: 700;
+  font-size: 64px; color: rgba(232,119,34,0.08); line-height: 1; margin-bottom: 16px;
+}
+.sta-icon {
+  width: 48px; height: 48px; border: 1.5px solid var(--orange); border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px; color: var(--orange);
+}
+.sta-name {
+  font-family: 'Orbitron', sans-serif; font-weight: 700;
+  font-size: 22px; letter-spacing: 0.06em; color: var(--white); margin-bottom: 12px;
+}
+.sta-desc { font-weight: 400; font-size: 16px; color: var(--gray); line-height: 1.7; margin-bottom: 24px; }
+.sta-specs { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border); }
+.sta-spec { display: flex; justify-content: space-between; padding: 6px 0; font-size: 13px; }
+.sta-spec-label { color: var(--gray-dim); }
+.sta-spec-value {
+  color: var(--orange); font-weight: 600;
+  font-family: 'Saira', sans-serif; font-size: 12px;
+}
+@media (max-width: 900px) { .sta-grid { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════════════════
+   PLATFORM
+   ═══════════════════════════════════════ */
+#platform {
+  background: var(--surface);
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.platform-layout {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: center; margin-top: 56px;
+}
+.platform-features { display: flex; flex-direction: column; gap: 28px; }
+.pf-item {
+  display: flex; gap: 20px; padding: 20px; border-radius: 12px;
+  border: 1px solid transparent; transition: all 0.3s;
+}
+.pf-item:hover { background: rgba(232,119,34,0.03); border-color: rgba(232,119,34,0.1); }
+.pf-icon {
+  width: 44px; height: 44px; min-width: 44px;
+  background: var(--orange-dim); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; color: var(--orange);
+}
+.pf-title, .vc-title, .oem-benefit-title { margin-top: 0; }
+.pf-title { font-weight: 700; font-size: 18px; color: var(--white); margin-bottom: 4px; }
+.pf-desc { font-size: 16px; color: var(--gray); line-height: 1.6; }
+
+.arch-diagram {
+  background: var(--navy); border: 1px solid var(--border);
+  border-radius: 16px; padding: 40px;
+}
+.arch-label {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gray-dim); text-align: center; margin-bottom: 16px;
+}
+.arch-layer {
+  padding: 16px 20px; border-radius: 8px; margin-bottom: 8px;
+  font-weight: 600; font-size: 14px; text-align: center;
+}
+.arch-layer.l-app {
+  background: rgba(232,119,34,0.08); border: 1px solid rgba(232,119,34,0.2); color: var(--orange);
+}
+.arch-layer.l-inference {
+  background: rgba(232,119,34,0.15); border: 1px solid rgba(232,119,34,0.3); color: var(--orange);
+}
+.arch-layer.l-edge {
+  background: var(--navy-light); border: 1px solid var(--border); color: var(--white);
+}
+.arch-layer.l-hw {
+  background: rgba(255,255,255,0.03); border: 1px solid var(--border); color: var(--gray);
+}
+.arch-connector { width: 1px; height: 12px; background: var(--orange); margin: 0 auto; opacity: 0.4; }
+@media (max-width: 900px) { .platform-layout { grid-template-columns: 1fr; gap: 40px; } }
+
+/* ═══════════════════════════════════════
+   VERTICALS
+   ═══════════════════════════════════════ */
+#verticals { background: var(--navy); }
+.verticals-grid {
+  display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; margin-top: 56px;
+}
+.vertical-card {
+  background: var(--navy-mid); border: 1px solid var(--border);
+  border-radius: 14px; padding: 36px 28px;
+  transition: all 0.4s; position: relative; overflow: hidden;
+}
+.vertical-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: var(--orange); transform: scaleX(0); transition: transform 0.4s;
+}
+.vertical-card:hover { border-color: rgba(232,119,34,0.2); transform: translateY(-4px); }
+.vertical-card:hover::after { transform: scaleX(1); }
+.vc-phase {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 16px;
+}
+.vc-title { font-weight: 700; font-size: 22px; color: var(--white); margin-bottom: 8px; }
+.vc-desc { font-size: 16px; color: var(--gray); line-height: 1.6; margin-bottom: 20px; }
+.vc-stats {
+  display: flex; gap: 20px; padding-top: 16px; border-top: 1px solid var(--border);
+}
+.vc-stat-value {
+  font-family: 'Saira', sans-serif; font-weight: 700;
+  font-size: 18px; color: var(--orange);
+}
+.vc-stat-label {
+  font-size: 11px; color: var(--gray-dim);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+@media (max-width: 900px) { .verticals-grid { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════════════════
+   OEM
+   ═══════════════════════════════════════ */
+#oem { background: var(--surface); border-top: 1px solid var(--border); }
+.oem-layout {
+  display: flex; flex-direction: column; gap: 56px; margin-top: 56px;
+}
+.oem-machine-mockup {
+  background: linear-gradient(135deg, #0D1829, #111D33);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px; padding: 40px 32px 32px; width: 100%; text-align: center;
+  overflow-x: auto;
+}
+.oem-machine-label {
+  font-size: 17px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: #FFFFFF; font-weight: 700; margin-bottom: 16px;
+}
+.oem-machine-mockup svg { max-width: 100%; height: auto; }
+/* Diagram carousel */
+.oem-carousel { position: relative; min-height: 310px; }
+.oem-slide { position: absolute; top: 0; left: 0; width: 100%; opacity: 0; transition: opacity 0.8s ease; pointer-events: none; overflow-x: auto; }
+.oem-slide.active { position: relative; opacity: 1; pointer-events: auto; }
+.oem-carousel-dots { display: flex; justify-content: center; gap: 10px; margin-top: 12px; }
+.oem-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.15); border: none; cursor: pointer; padding: 0; transition: background 0.3s; }
+.oem-dot.active { background: #E87722; }
+.oem-badge-slot {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 12px 20px; border: 1.5px solid rgba(255,255,255,0.15);
+  border-radius: 10px; background: rgba(0,0,0,0.3); margin-top: 20px;
+}
+.oem-badge-slot .badge-text { text-align: left; }
+.oem-badge-slot .badge-powered {
+  font-family: 'Saira', sans-serif; font-weight: 400;
+  font-size: 7px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--gray);
+}
+.oem-badge-slot .badge-name {
+  font-family: 'Orbitron', sans-serif; font-weight: 700;
+  font-size: 14px; letter-spacing: 0.06em;
+  color: #FFFFFF; line-height: 1; margin-top: 1px;
+}
+.oem-badge-slot .badge-slogan {
+  font-family: 'Saira', sans-serif; font-weight: 500;
+  font-size: 5.5px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--gray); margin-top: 2px;
+}
+.oem-benefits-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+}
+/* .oem-benefits removed — replaced by .oem-benefits-grid */
+.oem-benefit { display: flex; gap: 16px; align-items: flex-start; }
+.oem-benefit-num {
+  font-family: 'Saira', sans-serif; font-weight: 700;
+  font-size: 24px; color: rgba(232,119,34,0.2); min-width: 40px;
+}
+.oem-benefit-title { font-weight: 700; font-size: 18px; color: var(--white); margin-bottom: 4px; }
+.oem-benefit-desc { font-size: 16px; color: var(--gray); line-height: 1.6; }
+@media (max-width: 900px) {
+  .oem-benefits-grid { grid-template-columns: 1fr; }
+  .oem-machine-mockup { padding: 24px 16px 24px; }
+}
+
+/* ═══════════════════════════════════════
+   CREDENTIALS
+   ═══════════════════════════════════════ */
+#credentials { background: var(--navy); }
+.cred-grid {
+  display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 56px; max-width: 600px; margin-left: auto; margin-right: auto;
+}
+.cred-card {
+  background: var(--navy-mid); border: 1px solid var(--border);
+  border-radius: 12px; padding: 32px;
+}
+.cred-card-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 16px;
+}
+.cred-item {
+  font-size: 15px; color: var(--gray); padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+.cred-item:last-child { border-bottom: none; }
+@media (max-width: 768px) { .cred-grid { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════════════════
+   FOUNDER
+   ═══════════════════════════════════════ */
+#founder { background: var(--surface); border-top: 1px solid var(--border); }
+.founder-layout {
+  display: grid; grid-template-columns: auto 1fr; gap: 48px;
+  align-items: center; margin-top: 56px;
+}
+.founder-avatar {
+  width: 160px; height: 160px; border-radius: 50%;
+  background: var(--navy-light); border: 2px solid var(--orange);
+  display: flex; align-items: center; justify-content: center; position: relative;
+  overflow: hidden;
+}
+.founder-avatar img {
+  width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+}
+.founder-avatar::after {
+  content: ''; position: absolute; inset: -8px;
+  border: 1px dashed rgba(232,119,34,0.3); border-radius: 50%;
+  pointer-events: none;
+}
+.founder-initials {
+  font-family: 'Saira', sans-serif; font-weight: 800;
+  font-size: 40px; color: var(--orange);
+}
+.founder-credential {
+  font-size: 15px; color: var(--gray); line-height: 1.6; margin-bottom: 12px;
+  letter-spacing: 0.01em;
+}
+.founder-name { font-weight: 700; font-size: 24px; color: var(--white); margin-bottom: 4px; }
+.founder-title-text { font-size: 14px; color: var(--orange); font-weight: 500; margin-bottom: 16px; }
+.founder-bio { font-size: 17px; color: var(--gray); line-height: 1.7; max-width: 560px; }
+@media (max-width: 768px) {
+  .founder-layout { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .founder-bio { max-width: 100%; }
+}
+
+/* ═══════════════════════════════════════
+   CTA
+   ═══════════════════════════════════════ */
+#cta { background: var(--navy); padding: 120px 0; }
+.cta-box {
+  background: linear-gradient(135deg, var(--navy-mid), var(--navy-light));
+  border: 2px solid var(--orange); border-radius: 20px;
+  padding: 80px 60px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.cta-box::before {
+  content: ''; position: absolute; top: -200px; right: -200px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(232,119,34,0.06) 0%, transparent 60%);
+}
+.cta-title {
+  font-family: 'Saira', sans-serif; font-weight: 700;
+  font-size: clamp(28px,3.5vw,40px);
+  color: var(--white); margin-bottom: 16px; position: relative;
+}
+.cta-desc {
+  font-size: 18px; color: var(--gray); max-width: 500px;
+  margin: 0 auto 40px; line-height: 1.7; position: relative;
+}
+.cta-actions {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative;
+}
+@media (max-width: 768px) { .cta-box { padding: 48px 28px; } }
+
+/* ═══════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════ */
+footer {
+  background: var(--surface); border-top: 1px solid var(--border);
+  padding: 56px 0 32px;
+}
+.footer-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px; margin-bottom: 48px;
+}
+.footer-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.footer-brand-wordmark {
+  font-family: 'Orbitron', sans-serif; font-weight: 700;
+  font-size: 20px; letter-spacing: 0.08em; color: var(--white);
+}
+.footer-slogan {
+  font-weight: 500; font-size: 12px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gray); margin-bottom: 16px;
+}
+.footer-legal { font-size: 13px; color: var(--gray); line-height: 1.6; }
+.footer-col-title {
+  font-weight: 700; font-size: 12px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--white); margin-bottom: 16px;
+}
+.footer-col a {
+  display: block; font-size: 14px; color: var(--gray);
+  text-decoration: none; padding: 4px 0; transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--orange); }
+.footer-bottom {
+  padding-top: 24px; border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-copy { font-size: 12px; color: var(--gray); }
+.footer-copy a { color: var(--gray); text-decoration: none; }
+.footer-copy a:hover { color: var(--orange); }
+@media (max-width: 768px) { .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; } }
+@media (max-width: 480px) { .footer-top { grid-template-columns: 1fr; } }
+
+.hero-bg::before,
+.hero-bg::after,
+.hero-orbital-motion,
+.hero-orbital-svg use,
+.hero-atom-logo,
+.orbital-label,
+.scroll-line {
+  animation-play-state: paused;
+}
+.hero.hero-active .grid-overlay {
+  animation-play-state: running;
+  will-change: transform, background-position;
+}
+.hero.hero-active .hero-copy-shell,
+.hero.hero-active .hero-orbital-wrap {
+  will-change: transform;
+}
+.hero.hero-active .hero-bg::before,
+.hero.hero-active .hero-bg::after,
+.hero.hero-active .hero-orbital-motion,
+.hero.hero-active .hero-orbital-svg use,
+.hero.hero-active .hero-atom-logo,
+.hero.hero-active .orbital-label,
+.hero.hero-active .scroll-line {
+  animation-play-state: running;
+}
+
+/* ═══════════════════════════════════════
+   AUDIT FIXES — Keyboard Focus (WCAG 2.4.7)
+   ═══════════════════════════════════════ */
+a:focus-visible, button:focus-visible,
+.btn-primary:focus-visible, .btn-secondary:focus-visible,
+.nav-links a:focus-visible, .oem-dot:focus-visible {
+  outline: 2px solid #E87722;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ═══════════════════════════════════════
+   AUDIT FIXES — SVG Mobile Overflow (P0)
+   ═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .oem-slide { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .oem-slide svg { min-width: 600px; }
+}
+
+/* ═══════════════════════════════════════
+   AUDIT FIXES — Reduced Motion for SMIL (P1)
+   ═══════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .orbit-dot { animation: none !important; }
+  animateMotion { display: none; }
+  .oem-slide { transition: none; }
+}
+
+/* ═══════════════════════════════════════
+   AUDIT FIXES — Carousel Pause Button (P1)
+   ═══════════════════════════════════════ */
+.oem-carousel-pause {
+  width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05); cursor: pointer; display: flex;
+  align-items: center; justify-content: center; padding: 0; transition: border-color 0.3s;
+}
+.oem-carousel-pause:hover { border-color: #E87722; }
+.oem-carousel-pause svg { width: 12px; height: 12px; fill: rgba(255,255,255,0.5); }
+.oem-carousel-pause[aria-pressed="true"] svg { fill: #E87722; }
+
+/* ═══════════════════════════════════════
+   AUDIT FIXES — Small Mobile (<480px) (P2)
+   ═══════════════════════════════════════ */
+@media (max-width: 480px) {
+  .hero-copy-stage h1 { font-size: clamp(28px, 7vw, 40px); }
+  .section-title { font-size: clamp(22px, 5.5vw, 32px); }
+  .metrics-bar { gap: 16px; flex-wrap: wrap; }
+  .metric-item { min-width: 40%; }
+  .metric-value { font-size: clamp(28px, 8vw, 40px); }
+  .sta-grid { grid-template-columns: 1fr; }
+  .vc-grid { grid-template-columns: 1fr; }
+  .oem-benefits-grid { grid-template-columns: 1fr; }
+  .cred-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .cta-actions { flex-direction: column; gap: 12px; }
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TARVAN",
+  "legalName": "Seventh Horse Agri-Tech Pvt. Ltd.",
+  "url": "https://tarvan.ai",
+  "logo": "https://tarvan.ai/assets/favicon.svg",
+  "description": "Physical AI intelligence layer for industrial machines. Edge inference, deterministic actuation, and audit-ready traceability for OEM grading, sorting, and automation systems.",
+  "founder": {
+    "@type": "Person",
+    "name": "Dr. Shanmugakumar Murugesan",
+    "jobTitle": "Founder & CEO"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "connect@tarvan.ai",
+    "contactType": "sales"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/tarvan-ai"
+  ],
+  "slogan": "Intelligence That Moves Matter."
+}
+</script>
+</head>
+
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- ════════════ NAVIGATION ════════════ -->
+<nav id="navbar" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand" aria-label="Back to top">
+      <span class="nav-mono" id="nav-logo"><svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="18.00,2.16 30.38,8.12 33.44,21.52 24.87,32.27 11.13,32.27 2.56,21.52 5.62,8.12" fill="#0A1628" stroke="rgba(232,119,34,0.45)" stroke-width="1"/><text x="18.0" y="17.748" text-anchor="middle" dominant-baseline="central" font-family="'Saira', sans-serif" font-weight="800" font-size="20" fill="#E87722" dy="0.02em">T</text></svg></span>
+      <span class="nav-wordmark">TARVAN</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu" aria-controls="navDrawer" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-drawer" id="navDrawer">
+      <button class="nav-close" id="navClose" aria-label="Close navigation menu">Close</button>
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="#framework">Framework</a></li>
+        <li><a href="#platform">Platform</a></li>
+        <li><a href="#verticals">Verticals</a></li>
+        <li><a href="#oem">OEM</a></li>
+        <li><a href="#credentials">Credentials</a></li>
+        <li><a href="#cta" class="nav-cta">Talk to Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content" tabindex="-1">
+<!-- ════════════ HERO ════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"><div class="grid-overlay"></div></div>
+  <div class="hero-visual" id="hero-watermark">
+    <div class="hero-visual-stage">
+      <div class="hero-orbital-wrap" aria-hidden="true" role="presentation">
+        <div class="hero-orbital-motion">
+          <!-- Central logo rendered by JS -->
+          <div class="hero-atom-logo" id="hero-atom-logo"><svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="90.00,10.80 151.92,40.62 167.21,107.62 124.36,161.36 55.64,161.36 12.79,107.62 28.08,40.62" fill="#0F1D33" stroke="rgba(232,119,34,0.45)" stroke-width="0.5"/><text x="90.0" y="88.74" text-anchor="middle" dominant-baseline="central" font-family="'Saira', sans-serif" font-weight="800" font-size="101" fill="#E87722" dy="0.02em">T</text></svg></div>
+          <!-- Heptagon tracks around the monogram -->
+          <svg class="hero-orbital-svg" viewBox="0 0 560 560" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- Heptagon track scaled to sit tightly around the 180px logo -->
+              <polygon id="orbitVisBase" class="orbit-ring" points="280.00,104.00 417.60,170.27 451.59,319.16 356.36,438.57 203.64,438.57 108.41,319.16 142.40,170.27"/>
+              <path id="orbitPathBase" d="M 280.00,104.00 L 417.60,170.27 L 451.59,319.16 L 356.36,438.57 L 203.64,438.57 L 108.41,319.16 L 142.40,170.27 Z" fill="none"/>
+            </defs>
+
+            <!-- Visible heptagon tracks -->
+            <use href="#orbitVisBase" transform="rotate(-10 280 280)"/>
+            <use href="#orbitVisBase" transform="rotate(18 280 280)"/>
+            <use href="#orbitVisBase" transform="rotate(46 280 280)"/>
+
+            <!-- Seven running dots — a Seventh Horse reference -->
+            <g transform="rotate(-10 280 280)">
+              <circle class="orbit-dot" r="5.5" fill="#E87722">
+                <animateMotion dur="12s" begin="-1.4s" repeatCount="indefinite">
+                  <mpath href="#orbitPathBase"/>
+                </animateMotion>
+              </circle>
+              <circle class="orbit-dot dot-sm" r="4.25" fill="#E87722">
+                <animateMotion dur="15.8s" begin="-6.4s" repeatCount="indefinite">
+                  <mpath href="#orbitPathBase"/>
+                </animateMotion>
+              </circle>
+              <circle class="orbit-dot dot-xs" r="3.4" fill="#E87722">
+                <animateMotion dur="19.2s" begin="-11.1s" repeatCount="indefinite">
+                  <mpath href="#orbitPathBase"/>
+                </animateMotion>
+              </circle>
+            </g>
+            <g transform="rotate(18 280 280)">
+              <circle class="orbit-dot" r="5" fill="#E87722">
+                <animateMotion dur="13.6s" begin="-2.8s" repeatCount="indefinite">
+                  <mpath href="#orbitPathBase"/>
+                </animateMotion>
+              </circle>
+              <circle class="orbit-dot dot-sm" r="4" fill="#E87722">
+                <animateMotion dur="17.4s" begin="-8.9s" repeatCount="indefinite">
+                  <mpath href="#orbitPathBase"/>
+                </animateMotion>
+              </circle>
+            </g>
+            <g transform="rotate(46 280 280)">
+              <circle class="orbit-dot" r="4.75" fill="#E87722">
+                <animateMotion dur="14.8s" begin="-4.6s" repeatCount="indefinite">
+                  <mpath href="#orbitPathBase"/>
+                </animateMotion>
+              </circle>
+              <circle class="orbit-dot dot-sm" r="3.8" fill="#E87722">
+                <animateMotion dur="18.8s" begin="-12.7s" repeatCount="indefinite">
+                  <mpath href="#orbitPathBase"/>
+                </animateMotion>
+              </circle>
+            </g>
+
+            <!-- Labels placed OUTSIDE orbit rings with generous padding -->
+            <text class="orbital-label" x="280" y="60" text-anchor="middle">Sense</text>
+            <text class="orbital-label" x="520" y="284" text-anchor="end">Think</text>
+            <text class="orbital-label" x="280" y="520" text-anchor="middle">Act</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container hero-content">
+    <div class="hero-copy-stage">
+      <div class="hero-copy-shell">
+        <div class="hero-badge reveal reveal-left">
+          <div class="hero-badge-dot"></div>
+          <span>Physical AI Platform</span>
+        </div>
+        <div class="hero-lockup reveal reveal-left reveal-delay-1">
+          <div class="lk-h">
+            <span class="lk-mono" id="hero-logo"><svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="40.00,4.80 67.52,18.05 74.32,47.83 55.27,71.71 24.73,71.71 5.68,47.83 12.48,18.05" fill="#0A1628" stroke="rgba(232,119,34,0.45)" stroke-width="0.5"/><text x="40.0" y="39.44" text-anchor="middle" dominant-baseline="central" font-family="'Saira', sans-serif" font-weight="800" font-size="45" fill="#E87722" dy="0.02em">T</text></svg></span>
+            <div class="lk-text-group">
+              <h1 class="lk-wordmark">TARVAN</h1>
+              <div class="lk-slogan">Intelligence That Moves Matter.</div>
+            </div>
+          </div>
+        </div>
+        <p class="hero-desc reveal reveal-left reveal-delay-2">The Physical AI intelligence layer for industrial OEMs. Real-time perception, edge inference, and deterministic actuation — for any machine that needs to see, decide, and act at production speed.</p>
+        <div class="hero-actions reveal reveal-scale reveal-delay-3">
+          <a href="#cta" class="btn-primary">Start a Pilot <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a href="#framework" class="btn-secondary">See How It Works</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- ════════════ METRICS ════════════ -->
+<section class="metrics-bar" aria-label="Key metrics">
+  <div class="container">
+    <div class="metrics-grid">
+      <div class="metric-item reveal">
+        <div class="metric-value">&lt;85<span class="unit">ms</span></div>
+        <div class="metric-label">Inference Latency</div>
+      </div>
+      <div class="metric-item reveal reveal-delay-1">
+        <div class="metric-value">4</div>
+        <div class="metric-label">Industry Verticals</div>
+      </div>
+      <div class="metric-item reveal reveal-delay-2">
+        <div class="metric-value">100<span class="unit">%</span></div>
+        <div class="metric-label">Edge Inference</div>
+      </div>
+      <div class="metric-item reveal reveal-delay-3">
+        <div class="metric-value">0<span class="unit">%</span></div>
+        <div class="metric-label">Cloud Dependency for Operation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ SENSE · THINK · ACT ════════════ -->
+<section id="framework">
+  <div class="container">
+    <div class="section-badge reveal">The Framework</div>
+    <h2 class="section-title reveal">Sense. Think. Act.</h2>
+    <p class="section-desc reveal">TARVAN encodes the complete Physical AI loop — from raw perception of the physical world, through distributed decision-making, to physical intervention with measurable impact.</p>
+    <div class="sta-grid">
+      <div class="sta-card reveal">
+        <div class="sta-number">01</div>
+        <div class="sta-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M17.36 17.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M17.36 6.64l1.42-1.42"/>
+          </svg>
+        </div>
+        <div class="sta-name">SENSE</div>
+        <div class="sta-desc">Industrial-grade machine vision captures every object, every defect, every region — under controlled lighting, at line speed. No cloud. No latency penalty.</div>
+        <div class="sta-specs">
+          <div class="sta-spec"><span class="sta-spec-label">Camera</span><span class="sta-spec-value">Industrial GigE</span></div>
+          <div class="sta-spec"><span class="sta-spec-label">Lighting</span><span class="sta-spec-value">Controlled LED</span></div>
+          <div class="sta-spec"><span class="sta-spec-label">Capture</span><span class="sta-spec-value">Real-time</span></div>
+        </div>
+      </div>
+      <div class="sta-card reveal reveal-delay-1">
+        <div class="sta-number">02</div>
+        <div class="sta-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 01-2 2h-4a2 2 0 01-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/>
+            <path d="M10 21h4"/>
+          </svg>
+        </div>
+        <div class="sta-name">THINK</div>
+        <div class="sta-desc">Domain-specific ML models run on edge compute. Decision logic trained on real production data. From grading to path planning, in under 85 milliseconds.</div>
+        <div class="sta-specs">
+          <div class="sta-spec"><span class="sta-spec-label">Compute</span><span class="sta-spec-value">Jetson · Industrial Edge</span></div>
+          <div class="sta-spec"><span class="sta-spec-label">Latency Budget</span><span class="sta-spec-value">&lt;85ms</span></div>
+          <div class="sta-spec"><span class="sta-spec-label">Models</span><span class="sta-spec-value">Domain-specific</span></div>
+        </div>
+      </div>
+      <div class="sta-card reveal reveal-delay-2">
+        <div class="sta-number">03</div>
+        <div class="sta-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+        <div class="sta-name">ACT</div>
+        <div class="sta-desc">Deterministic actuator control with defined safe states. Pneumatic ejection, servo motion, or path execution — timed to the millisecond. Every action logged. Every decision auditable.</div>
+        <div class="sta-specs">
+          <div class="sta-spec"><span class="sta-spec-label">Actuation</span><span class="sta-spec-value">Pneumatic / Servo / Gantry</span></div>
+          <div class="sta-spec"><span class="sta-spec-label">Timing</span><span class="sta-spec-value">Deterministic</span></div>
+          <div class="sta-spec"><span class="sta-spec-label">Audit</span><span class="sta-spec-value">Full Traceability</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ PLATFORM ════════════ -->
+<section id="platform">
+  <div class="container">
+    <div class="section-badge reveal">The Platform</div>
+    <h2 class="section-title reveal">Physical AI Intelligence Layer</h2>
+    <p class="section-desc reveal">You build the machine. TARVAN makes it see, think, and act reliably at production speed. A complete stack from camera to actuator.</p>
+    <div class="platform-layout">
+      <div class="platform-features">
+        <div class="pf-item reveal">
+          <div class="pf-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="pf-title">Edge-First Architecture</h3>
+            <div class="pf-desc">No cloud dependency. Runs in factories with poor connectivity. All inference happens on-device, on-premise.</div>
+          </div>
+        </div>
+        <div class="pf-item reveal reveal-delay-1">
+          <div class="pf-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="pf-title">Domain-Specific Models</h3>
+            <div class="pf-desc">Not generic computer vision. Trained on real production data — from agri-commodities to industrial process lines. Perception logic built for your domain.</div>
+          </div>
+        </div>
+        <div class="pf-item reveal reveal-delay-2">
+          <div class="pf-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2v-4M9 21H5a2 2 0 01-2-2v-4"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="pf-title">OEM-Ready Integration</h3>
+            <div class="pf-desc">Defined mounting specs, IO signals, lighting requirements, and commissioning checklists. Drop into your machine, not reinvent it.</div>
+          </div>
+        </div>
+        <div class="pf-item reveal reveal-delay-3">
+          <div class="pf-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="pf-title">Deterministic Safety</h3>
+            <div class="pf-desc">Safe-state logic for every actuator. If the model fails, the system fails safe. Compliance-ready audit logs for FSSAI, ISO, export, and industrial safety certification.</div>
+          </div>
+        </div>
+      </div>
+      <div class="arch-diagram reveal">
+        <div class="arch-label">TARVAN Stack Architecture</div>
+        <div class="arch-layer l-app">Application Layer — Process UI · Audit Dashboard</div>
+        <div class="arch-connector"></div>
+        <div class="arch-layer l-inference">Inference Engine — Domain Models · Decision Logic</div>
+        <div class="arch-connector"></div>
+        <div class="arch-layer l-edge">Edge Runtime — Jetson · Industrial Edge · Deterministic Scheduler</div>
+        <div class="arch-connector"></div>
+        <div class="arch-layer l-hw">Hardware IO — Camera · Lighting · Actuators · Sensors</div>
+        <div style="margin-top:20px;text-align:center;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-dim);">
+          Latency budget: &lt;85ms end-to-end
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ VERTICALS ════════════ -->
+<section id="verticals">
+  <div class="container">
+    <div class="section-badge reveal">Verticals</div>
+    <h2 class="section-title reveal">Where Intelligence Meets Production</h2>
+    <p class="section-desc reveal">Proven in sorting. Expanding into process automation. Each vertical shares the same Sense–Think–Act core — only the actuation changes.</p>
+    <div class="verticals-grid">
+      <div class="vertical-card reveal">
+        <div class="vc-phase">Inspection & Grading · Flagship</div>
+        <h3 class="vc-title">Cashew Processing</h3>
+        <div class="vc-desc">Real-time kernel grading across 4 lanes. Pneumatic ejection by grade. Full production traceability for export compliance.</div>
+        <div class="vc-stats">
+          <div><div class="vc-stat-value">10/sec</div><div class="vc-stat-label">Per lane</div></div>
+          <div><div class="vc-stat-value">4</div><div class="vc-stat-label">Parallel lanes</div></div>
+        </div>
+      </div>
+      <div class="vertical-card reveal reveal-delay-1">
+        <div class="vc-phase">Inspection & Grading · Scale</div>
+        <h3 class="vc-title">Food &amp; Agri Sorting</h3>
+        <div class="vc-desc">Quality grading for spices, pulses, seeds, and packaged food. Large OEM installed base with clear throughput improvement targets.</div>
+        <div class="vc-stats">
+          <div><div class="vc-stat-value">FSSAI</div><div class="vc-stat-label">Ready</div></div>
+          <div><div class="vc-stat-value">Significant</div><div class="vc-stat-label">Reject reduction</div></div>
+        </div>
+      </div>
+      <div class="vertical-card reveal reveal-delay-2">
+        <div class="vc-phase">Process Automation · Expanding</div>
+        <h3 class="vc-title">Garment Finishing</h3>
+        <div class="vc-desc">Camera-guided perception of garments on industrial tables. Region detection drives stroke-level path planning for automated finishing equipment.</div>
+        <div class="vc-stats">
+          <div><div class="vc-stat-value">Perceive</div><div class="vc-stat-label">Regions</div></div>
+          <div><div class="vc-stat-value">Plan</div><div class="vc-stat-label">Motion paths</div></div>
+        </div>
+      </div>
+      <div class="vertical-card reveal reveal-delay-3">
+        <div class="vc-phase">Inspection & Grading · High Value</div>
+        <h3 class="vc-title">Auto Components</h3>
+        <div class="vc-desc">Surface defect detection and dimensional inspection for auto parts. Compliance-driven, high volume, zero-defect tolerance.</div>
+        <div class="vc-stats">
+          <div><div class="vc-stat-value">ISO</div><div class="vc-stat-label">Compliance</div></div>
+          <div><div class="vc-stat-value">High</div><div class="vc-stat-label">Volume</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ OEM ════════════ -->
+<section id="oem">
+  <div class="container">
+    <div class="section-badge reveal">For OEMs</div>
+    <h2 class="section-title reveal">Your Machine. Our Intelligence.</h2>
+    <p class="section-desc reveal">TARVAN functions as an ingredient brand for intelligent machines. When present, it signals edge inference, deterministic actuation, and audit-ready traceability — whether the machine inspects, sorts, or automates a process.</p>
+    <div class="oem-layout">
+      <div class="reveal">
+        <div class="oem-machine-mockup">
+          <div class="oem-machine-label">How TARVAN Fits Inside Your Machine</div>
+          <div class="oem-carousel" style="margin:24px 0;">
+          <!-- SLIDE 1: Production Line -->
+          <div class="oem-slide active" data-slide="0">
+            <svg viewBox="0 0 940 310" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;">
+              <defs>
+                <filter id="og" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+
+              <!-- ══ CONVEYOR BASE LINE ══ -->
+              <line x1="30" y1="200" x2="910" y2="200" stroke="rgba(255,255,255,0.18)" stroke-width="2.5"/>
+              <!-- conveyor rollers -->
+              <circle cx="60" cy="200" r="5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.18)"/>
+              <circle cx="160" cy="200" r="5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.18)"/>
+              <circle cx="340" cy="200" r="5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.18)"/>
+              <circle cx="610" cy="200" r="5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.18)"/>
+              <circle cx="760" cy="200" r="5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.18)"/>
+              <circle cx="880" cy="200" r="5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.18)"/>
+
+              <!-- ══ STAGE 1: RAW INPUT / HOPPER ══ -->
+              <rect x="30" y="110" width="100" height="86" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.14)" stroke-width="1.2"/>
+              <!-- hopper funnel shape -->
+              <polygon points="50,118 110,118 100,140 60,140" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.14)"/>
+              <rect x="62" y="140" width="36" height="48" rx="2" fill="rgba(255,255,255,0.035)" stroke="rgba(255,255,255,0.1)"/>
+              <text x="80" y="220" text-anchor="middle" font-family="'Saira',sans-serif" font-size="12" fill="rgba(255,255,255,0.85)" letter-spacing="0.12em" font-weight="600">RAW INPUT</text>
+
+              <!-- flow arrow 1→2 -->
+              <line x1="134" y1="153" x2="160" y2="153" stroke="rgba(255,255,255,0.2)" stroke-width="1.2" stroke-dasharray="4 3"/>
+              <polygon points="158,149 166,153 158,157" fill="rgba(255,255,255,0.25)"/>
+
+              <!-- ══ STAGE 2: FEED / CONVEYOR ══ -->
+              <rect x="168" y="126" width="110" height="70" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.14)" stroke-width="1.2"/>
+              <!-- belt rollers -->
+              <circle cx="195" cy="170" r="8" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.14)"/>
+              <circle cx="250" cy="170" r="8" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.14)"/>
+              <line x1="195" y1="162" x2="250" y2="162" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="195" y1="178" x2="250" y2="178" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <!-- items on belt -->
+              <rect x="210" y="155" width="10" height="7" rx="2" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.16)"/>
+              <rect x="228" y="155" width="10" height="7" rx="2" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.16)"/>
+              <text x="223" y="220" text-anchor="middle" font-family="'Saira',sans-serif" font-size="12" fill="rgba(255,255,255,0.85)" letter-spacing="0.12em" font-weight="600">FEED</text>
+
+              <!-- flow arrow 2→3 -->
+              <line x1="282" y1="153" x2="348" y2="153" stroke="rgba(255,255,255,0.2)" stroke-width="1.2" stroke-dasharray="4 3"/>
+              <polygon points="346,149 354,153 346,157" fill="rgba(255,255,255,0.25)"/>
+
+              <!-- ══ STAGE 3: TARVAN INTELLIGENCE ZONE (orange glow) ══ -->
+              <!-- Glow background -->
+              <rect x="352" y="36" width="236" height="178" rx="12" fill="rgba(232,119,34,0.04)" filter="url(#og)"/>
+              <rect x="352" y="36" width="236" height="178" rx="12" stroke="rgba(232,119,34,0.25)" stroke-width="1.2" stroke-dasharray="6 4"/>
+
+              <!-- Zone label at top -->
+              <text x="470" y="26" text-anchor="middle" font-family="'Saira',sans-serif" font-size="14" fill="#E87722" letter-spacing="0.16em" font-weight="700">TARVAN INTELLIGENCE LAYER</text>
+
+              <!-- Camera / SENSE module -->
+              <rect x="366" y="52" width="66" height="62" rx="6" fill="rgba(232,119,34,0.1)" stroke="rgba(232,119,34,0.5)" stroke-width="1.2"/>
+              <circle cx="399" cy="72" r="13" fill="none" stroke="#E87722" stroke-width="1.4"/>
+              <circle cx="399" cy="72" r="7" fill="rgba(232,119,34,0.3)" stroke="#E87722" stroke-width="1"/>
+              <circle cx="399" cy="72" r="3" fill="#E87722"/>
+              <!-- scan lines from camera -->
+              <line x1="388" y1="90" x2="378" y2="108" stroke="rgba(232,119,34,0.4)" stroke-width="0.8" stroke-dasharray="2 2"/>
+              <line x1="399" y1="90" x2="399" y2="110" stroke="rgba(232,119,34,0.4)" stroke-width="0.8" stroke-dasharray="2 2"/>
+              <line x1="410" y1="90" x2="420" y2="108" stroke="rgba(232,119,34,0.4)" stroke-width="0.8" stroke-dasharray="2 2"/>
+              <text x="399" y="105" text-anchor="middle" font-family="'Saira',sans-serif" font-size="12" fill="#FF9245" letter-spacing="0.1em" font-weight="700">SENSE</text>
+
+              <!-- Signal arrow SENSE → THINK -->
+              <line x1="432" y1="80" x2="448" y2="80" stroke="#E87722" stroke-width="1.2" stroke-dasharray="3 2"/>
+              <polygon points="446,77 452,80 446,83" fill="#E87722" opacity="0.7"/>
+
+              <!-- Compute / THINK module -->
+              <rect x="452" y="52" width="66" height="62" rx="6" fill="rgba(232,119,34,0.1)" stroke="rgba(232,119,34,0.5)" stroke-width="1.2"/>
+              <!-- chip icon -->
+              <rect x="472" y="63" width="24" height="24" rx="4" fill="rgba(232,119,34,0.15)" stroke="#E87722" stroke-width="1"/>
+              <line x1="478" y1="63" x2="478" y2="57" stroke="#E87722" stroke-width="0.8"/>
+              <line x1="484" y1="63" x2="484" y2="57" stroke="#E87722" stroke-width="0.8"/>
+              <line x1="490" y1="63" x2="490" y2="57" stroke="#E87722" stroke-width="0.8"/>
+              <line x1="478" y1="87" x2="478" y2="93" stroke="#E87722" stroke-width="0.8"/>
+              <line x1="484" y1="87" x2="484" y2="93" stroke="#E87722" stroke-width="0.8"/>
+              <line x1="490" y1="87" x2="490" y2="93" stroke="#E87722" stroke-width="0.8"/>
+              <text x="485" y="101" text-anchor="middle" font-family="'Saira',sans-serif" font-size="12" fill="#FF9245" letter-spacing="0.1em" font-weight="700">THINK</text>
+              <text x="485" y="112" text-anchor="middle" font-family="'Saira',sans-serif" font-size="10" fill="rgba(255,146,69,0.8)" letter-spacing="0.06em">&lt;85ms</text>
+
+              <!-- Signal arrow THINK → ACT -->
+              <line x1="518" y1="80" x2="534" y2="80" stroke="#E87722" stroke-width="1.2" stroke-dasharray="3 2"/>
+              <polygon points="532,77 538,80 532,83" fill="#E87722" opacity="0.7"/>
+
+              <!-- Actuation / ACT module -->
+              <rect x="538" y="52" width="38" height="62" rx="6" fill="rgba(232,119,34,0.1)" stroke="rgba(232,119,34,0.5)" stroke-width="1.2"/>
+              <polygon points="551,68 561,62 561,74" fill="#E87722" opacity="0.8"/>
+              <text x="557" y="101" text-anchor="middle" font-family="'Saira',sans-serif" font-size="12" fill="#FF9245" letter-spacing="0.1em" font-weight="700">ACT</text>
+
+              <!-- Vertical signal lines down to conveyor zone -->
+              <line x1="399" y1="114" x2="399" y2="148" stroke="rgba(232,119,34,0.45)" stroke-width="1" stroke-dasharray="3 2"/>
+              <line x1="485" y1="114" x2="485" y2="148" stroke="rgba(232,119,34,0.45)" stroke-width="1" stroke-dasharray="3 2"/>
+              <line x1="557" y1="114" x2="557" y2="148" stroke="rgba(232,119,34,0.45)" stroke-width="1" stroke-dasharray="3 2"/>
+
+              <!-- Inspection zone on conveyor (within glow) -->
+              <rect x="370" y="148" width="196" height="48" rx="4" fill="rgba(232,119,34,0.06)" stroke="rgba(232,119,34,0.3)" stroke-width="1"/>
+              <!-- items being inspected -->
+              <rect x="390" y="158" width="16" height="12" rx="3" fill="rgba(232,119,34,0.15)" stroke="rgba(232,119,34,0.45)"/>
+              <rect x="418" y="158" width="16" height="12" rx="3" fill="rgba(232,119,34,0.15)" stroke="rgba(232,119,34,0.45)"/>
+              <rect x="446" y="158" width="16" height="12" rx="3" fill="rgba(232,119,34,0.15)" stroke="rgba(232,119,34,0.45)"/>
+              <!-- reject arrow -->
+              <line x1="534" y1="172" x2="554" y2="185" stroke="#E87722" stroke-width="1" stroke-dasharray="3 2"/>
+              <polygon points="550,181 560,186 548,189" fill="#E87722" opacity="0.6"/>
+              <text x="468" y="191" text-anchor="middle" font-family="'Saira',sans-serif" font-size="10" fill="rgba(232,119,34,0.7)" letter-spacing="0.1em" font-weight="600">INSPECTION ZONE</text>
+
+              <!-- SENSE · THINK · ACT label below zone -->
+              <text x="470" y="230" text-anchor="middle" font-family="'Saira',sans-serif" font-size="12" fill="rgba(232,119,34,0.75)" letter-spacing="0.14em" font-weight="600">SENSE · THINK · ACT</text>
+
+              <!-- flow arrow 3→4 -->
+              <line x1="592" y1="153" x2="618" y2="153" stroke="rgba(255,255,255,0.2)" stroke-width="1.2" stroke-dasharray="4 3"/>
+              <polygon points="616,149 624,153 616,157" fill="rgba(255,255,255,0.25)"/>
+
+              <!-- ══ STAGE 4: SORTING / OUTPUT ══ -->
+              <rect x="626" y="120" width="100" height="76" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.14)" stroke-width="1.2"/>
+              <!-- sorting channels -->
+              <line x1="650" y1="138" x2="650" y2="188" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+              <line x1="676" y1="138" x2="676" y2="188" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+              <line x1="702" y1="138" x2="702" y2="188" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+              <!-- grade labels -->
+              <text x="663" y="154" text-anchor="middle" font-family="'Saira',sans-serif" font-size="11" fill="rgba(255,255,255,0.7)" font-weight="600">A</text>
+              <text x="689" y="154" text-anchor="middle" font-family="'Saira',sans-serif" font-size="11" fill="rgba(255,255,255,0.7)" font-weight="600">B</text>
+              <text x="714" y="154" text-anchor="middle" font-family="'Saira',sans-serif" font-size="11" fill="rgba(255,255,255,0.7)" font-weight="600">C</text>
+              <!-- small bins at bottom -->
+              <rect x="644" y="168" width="22" height="18" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)"/>
+              <rect x="670" y="168" width="22" height="18" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)"/>
+              <rect x="696" y="168" width="22" height="18" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)"/>
+              <text x="676" y="220" text-anchor="middle" font-family="'Saira',sans-serif" font-size="12" fill="rgba(255,255,255,0.85)" letter-spacing="0.12em" font-weight="600">SORTING</text>
+
+              <!-- flow arrow 4→5 -->
+              <line x1="730" y1="153" x2="756" y2="153" stroke="rgba(255,255,255,0.2)" stroke-width="1.2" stroke-dasharray="4 3"/>
+              <polygon points="754,149 762,153 754,157" fill="rgba(255,255,255,0.25)"/>
+
+              <!-- ══ STAGE 5: PACKAGING / DISPATCH ══ -->
+              <rect x="764" y="120" width="100" height="76" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.14)" stroke-width="1.2"/>
+              <!-- box shapes -->
+              <rect x="784" y="138" width="26" height="22" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.14)"/>
+              <rect x="818" y="138" width="26" height="22" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.14)"/>
+              <rect x="800" y="164" width="26" height="22" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.14)"/>
+              <!-- check marks on boxes -->
+              <polyline points="791,149 796,154 803,144" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
+              <polyline points="825,149 830,154 837,144" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
+              <text x="814" y="220" text-anchor="middle" font-family="'Saira',sans-serif" font-size="12" fill="rgba(255,255,255,0.85)" letter-spacing="0.12em" font-weight="600">OUTPUT</text>
+
+              <!-- ══ FLOW DIRECTION ARROW ══ -->
+              <line x1="80" y1="244" x2="860" y2="244" stroke="rgba(255,255,255,0.1)" stroke-width="1.2"/>
+              <polygon points="856,240 870,244 856,248" fill="rgba(255,255,255,0.15)"/>
+              <text x="470" y="256" text-anchor="middle" font-family="'Saira',sans-serif" font-size="11" fill="rgba(255,255,255,0.5)" letter-spacing="0.2em" font-weight="600">PRODUCTION FLOW</text>
+            </svg>
+          </div>
+          <!-- SLIDE 2: Gantry System (Solid, Labeled) -->
+          <div class="oem-slide" data-slide="1">
+            <svg viewBox="0 0 940 310" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;">
+              <defs>
+                <filter id="og2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                <!-- Subtle gradient for solid metal look -->
+                <linearGradient id="metalV" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="rgba(255,255,255,0.10)"/>
+                  <stop offset="100%" stop-color="rgba(255,255,255,0.05)"/>
+                </linearGradient>
+                <linearGradient id="metalH" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="rgba(255,255,255,0.12)"/>
+                  <stop offset="100%" stop-color="rgba(255,255,255,0.06)"/>
+                </linearGradient>
+                <linearGradient id="tableFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="rgba(255,255,255,0.08)"/>
+                  <stop offset="100%" stop-color="rgba(255,255,255,0.03)"/>
+                </linearGradient>
+              </defs>
+
+              <!-- ═══════════════════════════════════════════════════ -->
+              <!-- GANTRY — SOLID SHAPES + LABELED COMPONENTS         -->
+              <!-- Chunky, filled shapes so anyone can recognise it   -->
+              <!-- Clear labels with leader lines on each part        -->
+              <!-- ═══════════════════════════════════════════════════ -->
+
+              <!-- ══════════════════════════ -->
+              <!--   1. WORK TABLE / BED     -->
+              <!-- ══════════════════════════ -->
+              <!-- Top surface -->
+              <polygon points="200,225 700,225 735,202 235,202" fill="url(#tableFill)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" stroke-linejoin="round"/>
+              <!-- Front face -->
+              <polygon points="200,225 700,225 700,240 200,240" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+              <!-- Right face -->
+              <polygon points="700,225 735,202 735,217 700,240" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+              <!-- Table legs (4 solid short columns) -->
+              <rect x="212" y="240" width="8" height="16" rx="1" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)" stroke-width="0.8"/>
+              <rect x="680" y="240" width="8" height="16" rx="1" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)" stroke-width="0.8"/>
+              <rect x="718" y="217" width="7" height="14" rx="1" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="0.6"/>
+              <rect x="247" y="217" width="7" height="14" rx="1" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="0.6"/>
+              <!-- Workpiece on table (to give context) -->
+              <rect x="390" y="210" width="90" height="15" rx="3" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.16)" stroke-width="0.8" stroke-dasharray="3 2"/>
+              <text x="435" y="221" text-anchor="middle" font-family="'Saira',sans-serif" font-size="7" fill="rgba(255,255,255,0.25)">WORKPIECE</text>
+              <!-- LABEL: WORK TABLE -->
+              <line x1="450" y1="240" x2="450" y2="265" stroke="rgba(255,255,255,0.2)" stroke-width="0.6"/>
+              <line x1="450" y1="265" x2="530" y2="265" stroke="rgba(255,255,255,0.2)" stroke-width="0.6"/>
+              <text x="535" y="268" font-family="'Saira',sans-serif" font-size="10" fill="rgba(255,255,255,0.55)" letter-spacing="0.06em" font-weight="600">WORK TABLE</text>
+
+              <!-- ══════════════════════════════════════ -->
+              <!--   2. LEFT COLUMN (solid, chunky)      -->
+              <!-- ══════════════════════════════════════ -->
+              <!-- Front face — thick solid rectangle -->
+              <rect x="212" y="62" width="30" height="163" rx="3" fill="url(#metalV)" stroke="rgba(255,255,255,0.26)" stroke-width="1.8"/>
+              <!-- 3D top face -->
+              <polygon points="212,62 242,62 272,44 242,44" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+              <!-- 3D right side face -->
+              <polygon points="242,62 272,44 272,197 242,225" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.14)" stroke-width="0.8"/>
+              <!-- Column base flange (wider footing) -->
+              <rect x="206" y="215" width="42" height="10" rx="2" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+
+              <!-- ══════════════════════════════════════ -->
+              <!--   3. RIGHT COLUMN (solid, chunky)     -->
+              <!-- ══════════════════════════════════════ -->
+              <rect x="662" y="62" width="30" height="163" rx="3" fill="url(#metalV)" stroke="rgba(255,255,255,0.26)" stroke-width="1.8"/>
+              <polygon points="662,62 692,62 722,44 692,44" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+              <polygon points="692,62 722,44 722,197 692,225" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.14)" stroke-width="0.8"/>
+              <rect x="656" y="215" width="42" height="10" rx="2" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+              <!-- LABEL: COLUMNS -->
+              <line x1="698" y1="150" x2="745" y2="150" stroke="rgba(255,255,255,0.2)" stroke-width="0.6"/>
+              <text x="750" y="153" font-family="'Saira',sans-serif" font-size="10" fill="rgba(255,255,255,0.55)" letter-spacing="0.06em" font-weight="600">COLUMNS</text>
+
+              <!-- ══════════════════════════════════════════ -->
+              <!--   4. BRIDGE BEAM (thick, very prominent)  -->
+              <!-- ══════════════════════════════════════════ -->
+              <!-- Front face — widest, most visible element -->
+              <rect x="242" y="62" width="420" height="24" rx="3" fill="url(#metalH)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+              <!-- Top face (3D depth) -->
+              <polygon points="242,62 662,62 692,44 272,44" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1.2"/>
+              <!-- Linear rail on bridge (X-axis guide) -->
+              <line x1="258" y1="79" x2="646" y2="79" stroke="rgba(255,255,255,0.2)" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- Rail detail ticks -->
+              <line x1="300" y1="77" x2="300" y2="81" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+              <line x1="400" y1="77" x2="400" y2="81" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+              <line x1="500" y1="77" x2="500" y2="81" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+              <line x1="600" y1="77" x2="600" y2="81" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+              <!-- LABEL: BRIDGE BEAM -->
+              <line x1="452" y1="62" x2="452" y2="40" stroke="rgba(255,255,255,0.2)" stroke-width="0.6"/>
+              <line x1="452" y1="40" x2="530" y2="40" stroke="rgba(255,255,255,0.2)" stroke-width="0.6"/>
+              <text x="535" y="43" font-family="'Saira',sans-serif" font-size="10" fill="rgba(255,255,255,0.55)" letter-spacing="0.06em" font-weight="600">BRIDGE BEAM</text>
+
+              <!-- ══════════════════════════════════════ -->
+              <!--   5. CARRIAGE (sliding block on rail)  -->
+              <!-- ══════════════════════════════════════ -->
+              <rect x="408" y="68" width="60" height="26" rx="4" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="1.8"/>
+              <!-- Roller bearings on rail -->
+              <circle cx="418" cy="79" r="3" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.22)" stroke-width="0.8"/>
+              <circle cx="458" cy="79" r="3" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.22)" stroke-width="0.8"/>
+
+              <!-- ══════════════════════════════════════ -->
+              <!--   6. Z-AXIS (vertical rod from        -->
+              <!--      carriage down to tool)            -->
+              <!-- ══════════════════════════════════════ -->
+              <rect x="430" y="94" width="16" height="100" rx="3" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+              <!-- Guide grooves -->
+              <line x1="435" y1="100" x2="435" y2="190" stroke="rgba(255,255,255,0.1)" stroke-width="0.6"/>
+              <line x1="441" y1="100" x2="441" y2="190" stroke="rgba(255,255,255,0.1)" stroke-width="0.6"/>
+              <!-- LABEL: Z-AXIS -->
+              <line x1="430" y1="145" x2="170" y2="145" stroke="rgba(255,255,255,0.2)" stroke-width="0.6"/>
+              <text x="115" y="148" text-anchor="start" font-family="'Saira',sans-serif" font-size="10" fill="rgba(255,255,255,0.55)" letter-spacing="0.06em" font-weight="600">Z-AXIS COLUMN</text>
+
+              <!-- ══════════════════════════════════════ -->
+              <!--   7. TOOL HEAD / SPINDLE               -->
+              <!-- ══════════════════════════════════════ -->
+              <rect x="424" y="194" width="28" height="18" rx="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.26)" stroke-width="1.3"/>
+              <!-- Spindle bit -->
+              <line x1="438" y1="212" x2="438" y2="224" stroke="rgba(255,255,255,0.28)" stroke-width="3.5" stroke-linecap="round"/>
+              <circle cx="438" cy="225" r="2.5" fill="rgba(255,255,255,0.18)"/>
+              <!-- LABEL: TOOL HEAD -->
+              <line x1="424" y1="202" x2="170" y2="202" stroke="rgba(255,255,255,0.2)" stroke-width="0.6"/>
+              <text x="115" y="205" text-anchor="start" font-family="'Saira',sans-serif" font-size="10" fill="rgba(255,255,255,0.55)" letter-spacing="0.06em" font-weight="600">TOOL HEAD</text>
+
+              <!-- ════════════════════════════════════════ -->
+              <!-- TARVAN INTELLIGENCE (Orange elements)    -->
+              <!-- ════════════════════════════════════════ -->
+
+              <!-- ══ CAMERA on bridge — looking down ══ -->
+              <g filter="url(#og2)">
+                <rect x="468" y="30" width="44" height="28" rx="5" fill="rgba(232,119,34,0.15)" stroke="#E87722" stroke-width="1.8"/>
+              </g>
+              <circle cx="490" cy="41" r="8" fill="none" stroke="#E87722" stroke-width="1.4"/>
+              <circle cx="490" cy="41" r="4" fill="rgba(232,119,34,0.35)" stroke="#E87722" stroke-width="0.8"/>
+              <circle cx="490" cy="41" r="2" fill="#E87722"/>
+              <text x="490" y="22" text-anchor="middle" font-family="'Saira',sans-serif" font-size="12" fill="#FF9245" letter-spacing="0.1em" font-weight="700">CAMERA</text>
+              <!-- Scan cone to workpiece area -->
+              <line x1="483" y1="58" x2="410" y2="210" stroke="rgba(232,119,34,0.22)" stroke-width="0.8" stroke-dasharray="3 2"/>
+              <line x1="490" y1="58" x2="435" y2="210" stroke="rgba(232,119,34,0.32)" stroke-width="1" stroke-dasharray="3 2"/>
+              <line x1="497" y1="58" x2="460" y2="210" stroke="rgba(232,119,34,0.22)" stroke-width="0.8" stroke-dasharray="3 2"/>
+
+              <!-- ══ AI COMPUTE BOX — right side ══ -->
+              <g filter="url(#og2)">
+                <rect x="790" y="90" width="56" height="38" rx="5" fill="rgba(232,119,34,0.12)" stroke="#E87722" stroke-width="1.5"/>
+              </g>
+              <rect x="803" y="100" width="16" height="16" rx="2" fill="rgba(232,119,34,0.18)" stroke="#E87722" stroke-width="0.8"/>
+              <line x1="807" y1="100" x2="807" y2="96" stroke="#E87722" stroke-width="0.7"/>
+              <line x1="811" y1="100" x2="811" y2="96" stroke="#E87722" stroke-width="0.7"/>
+              <line x1="815" y1="100" x2="815" y2="96" stroke="#E87722" stroke-width="0.7"/>
+              <line x1="807" y1="116" x2="807" y2="120" stroke="#E87722" stroke-width="0.7"/>
+              <line x1="811" y1="116" x2="811" y2="120" stroke="#E87722" stroke-width="0.7"/>
+              <line x1="815" y1="116" x2="815" y2="120" stroke="#E87722" stroke-width="0.7"/>
+              <circle cx="832" cy="109" r="3" fill="#E87722" opacity="0.7"/>
+              <text x="818" y="141" text-anchor="middle" font-family="'Saira',sans-serif" font-size="11" fill="#FF9245" letter-spacing="0.08em" font-weight="700">AI EDGE</text>
+
+              <!-- ══ Signal: Camera → Compute ══ -->
+              <line x1="512" y1="44" x2="790" y2="105" stroke="#E87722" stroke-width="1.2" stroke-dasharray="4 3"/>
+              <circle cx="651" cy="75" r="2.5" fill="#E87722" opacity="0.5"/>
+
+              <!-- ══ Signals: Compute → Motors ══ -->
+              <line x1="790" y1="115" x2="240" y2="140" stroke="#E87722" stroke-width="1" stroke-dasharray="4 3" opacity="0.45"/>
+              <circle cx="240" cy="140" r="3.5" fill="#E87722" opacity="0.45"/>
+              <line x1="790" y1="115" x2="685" y2="140" stroke="#E87722" stroke-width="1" stroke-dasharray="4 3" opacity="0.45"/>
+              <circle cx="685" cy="140" r="3.5" fill="#E87722" opacity="0.45"/>
+              <line x1="790" y1="108" x2="468" y2="79" stroke="#E87722" stroke-width="1" stroke-dasharray="4 3" opacity="0.45"/>
+              <circle cx="468" cy="79" r="3.5" fill="#E87722" opacity="0.45"/>
+              <text x="818" y="157" text-anchor="middle" font-family="'Saira',sans-serif" font-size="10" fill="rgba(232,119,34,0.6)" letter-spacing="0.08em" font-weight="600">MOTOR SIGNALS</text>
+
+              <!-- ══ Bottom banner ══ -->
+              <text x="460" y="290" text-anchor="middle" font-family="'Saira',sans-serif" font-size="14" fill="#E87722" letter-spacing="0.16em" font-weight="700">TARVAN INTELLIGENCE LAYER</text>
+              <text x="460" y="306" text-anchor="middle" font-family="'Saira',sans-serif" font-size="11" fill="rgba(255,255,255,0.5)" letter-spacing="0.2em" font-weight="600">GANTRY SYSTEM</text>
+            </svg>
+          </div>
+          <!-- SLIDE 3: Pick & Place Robotic Arm -->
+          <div class="oem-slide" data-slide="2">
+            <svg viewBox="0 0 940 310" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;">
+              <defs>
+                <filter id="og3" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+
+              <!-- ═══════════════════════════════════════════ -->
+              <!-- PICK & PLACE ARM — 3/4 view                -->
+              <!-- Articulated arm with base, shoulder, elbow -->
+              <!-- wrist, gripper. Conveyor + placement zone  -->
+              <!-- ═══════════════════════════════════════════ -->
+
+              <!-- ══ CONVEYOR BELT (source side, left) ══ -->
+              <rect x="80" y="232" width="340" height="14" rx="4" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.14)" stroke-width="1.2"/>
+              <!-- Rollers -->
+              <circle cx="95" cy="239" r="6" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <circle cx="405" cy="239" r="6" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <!-- Belt track lines -->
+              <line x1="101" y1="235" x2="399" y2="235" stroke="rgba(255,255,255,0.08)" stroke-width="0.6"/>
+              <line x1="101" y1="243" x2="399" y2="243" stroke="rgba(255,255,255,0.08)" stroke-width="0.6"/>
+              <!-- Items on conveyor -->
+              <rect x="160" y="222" width="18" height="12" rx="2" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.16)" stroke-width="0.8"/>
+              <rect x="210" y="222" width="18" height="12" rx="2" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.16)" stroke-width="0.8"/>
+              <rect x="265" y="222" width="18" height="12" rx="2" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.16)" stroke-width="0.8"/>
+              <!-- Conveyor direction arrow -->
+              <line x1="130" y1="255" x2="190" y2="255" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+              <polygon points="190,252 198,255 190,258" fill="rgba(255,255,255,0.12)"/>
+
+              <!-- ══ PLACEMENT ZONE (target, right) ══ -->
+              <rect x="620" y="228" width="160" height="18" rx="3" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="4 3"/>
+              <!-- Placed items -->
+              <rect x="640" y="218" width="16" height="12" rx="2" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+              <rect x="670" y="218" width="16" height="12" rx="2" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+              <text x="700" y="260" text-anchor="middle" font-family="'Saira',sans-serif" font-size="9" fill="rgba(255,255,255,0.25)" letter-spacing="0.08em">OUTPUT</text>
+
+              <!-- ══ ROBOT BASE / PEDESTAL ══ -->
+              <!-- Base plate (3D ellipse) -->
+              <ellipse cx="460" cy="254" rx="50" ry="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.18)" stroke-width="1.3"/>
+              <!-- Base cylinder body -->
+              <rect x="410" y="242" width="100" height="12" fill="rgba(255,255,255,0.03)"/>
+              <line x1="410" y1="242" x2="410" y2="254" stroke="rgba(255,255,255,0.18)" stroke-width="1.3"/>
+              <line x1="510" y1="242" x2="510" y2="254" stroke="rgba(255,255,255,0.18)" stroke-width="1.3"/>
+              <ellipse cx="460" cy="242" rx="50" ry="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1.3"/>
+              <!-- Base rotation indicator -->
+              <ellipse cx="460" cy="242" rx="30" ry="7" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.6" stroke-dasharray="3 2"/>
+
+              <!-- ══ TURRET / SHOULDER COLUMN ══ -->
+              <rect x="448" y="190" width="24" height="52" rx="4" fill="rgba(255,255,255,0.035)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+
+              <!-- ══ SHOULDER JOINT (J1) ══ -->
+              <circle cx="460" cy="190" r="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.22)" stroke-width="1.8"/>
+              <circle cx="460" cy="190" r="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
+
+              <!-- ══ LOWER ARM (shoulder → elbow, angling up-left) ══ -->
+              <line x1="460" y1="190" x2="340" y2="105" stroke="rgba(255,255,255,0.22)" stroke-width="8" stroke-linecap="round"/>
+              <line x1="460" y1="190" x2="340" y2="105" stroke="rgba(255,255,255,0.06)" stroke-width="16" stroke-linecap="round"/>
+
+              <!-- ══ ELBOW JOINT (J2) ══ -->
+              <circle cx="340" cy="105" r="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.22)" stroke-width="1.8"/>
+              <circle cx="340" cy="105" r="3.5" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
+
+              <!-- ══ UPPER ARM (elbow → wrist, reaching right toward placement) ══ -->
+              <line x1="340" y1="105" x2="560" y2="155" stroke="rgba(255,255,255,0.2)" stroke-width="6" stroke-linecap="round"/>
+              <line x1="340" y1="105" x2="560" y2="155" stroke="rgba(255,255,255,0.05)" stroke-width="12" stroke-linecap="round"/>
+
+              <!-- ══ WRIST JOINT (J3) ══ -->
+              <circle cx="560" cy="155" r="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+              <circle cx="560" cy="155" r="3" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="0.6"/>
+
+              <!-- ══ WRIST EXTENSION + GRIPPER ══ -->
+              <!-- Wrist vertical down -->
+              <line x1="560" y1="163" x2="560" y2="195" stroke="rgba(255,255,255,0.2)" stroke-width="4" stroke-linecap="round"/>
+              <!-- Gripper mount -->
+              <rect x="548" y="195" width="24" height="8" rx="2" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+              <!-- Left finger -->
+              <line x1="552" y1="203" x2="549" y2="220" stroke="rgba(255,255,255,0.22)" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- Right finger -->
+              <line x1="568" y1="203" x2="571" y2="220" stroke="rgba(255,255,255,0.22)" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- Object being gripped -->
+              <rect x="551" y="214" width="18" height="10" rx="2" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" stroke-width="0.8"/>
+
+              <!-- ══ JOINT LABELS (very subtle) ══ -->
+              <text x="484" y="188" font-family="'Saira',sans-serif" font-size="8" fill="rgba(255,255,255,0.2)" letter-spacing="0.05em">J1</text>
+              <text x="320" y="98" font-family="'Saira',sans-serif" font-size="8" fill="rgba(255,255,255,0.2)" letter-spacing="0.05em">J2</text>
+              <text x="575" y="150" font-family="'Saira',sans-serif" font-size="8" fill="rgba(255,255,255,0.2)" letter-spacing="0.05em">J3</text>
+
+              <!-- ═══════════════════════════════════════ -->
+              <!-- TARVAN INTELLIGENCE (Orange overlay)    -->
+              <!-- ═══════════════════════════════════════ -->
+
+              <!-- ══ CAMERA — overhead, looking down at work area ══ -->
+              <g filter="url(#og3)">
+                <rect x="370" y="30" width="44" height="28" rx="5" fill="rgba(232,119,34,0.12)" stroke="#E87722" stroke-width="1.5"/>
+              </g>
+              <circle cx="392" cy="41" r="8" fill="none" stroke="#E87722" stroke-width="1.4"/>
+              <circle cx="392" cy="41" r="4" fill="rgba(232,119,34,0.3)" stroke="#E87722" stroke-width="0.8"/>
+              <circle cx="392" cy="41" r="1.8" fill="#E87722"/>
+              <text x="392" y="22" text-anchor="middle" font-family="'Saira',sans-serif" font-size="12" fill="#FF9245" letter-spacing="0.1em" font-weight="700">CAMERA</text>
+              <!-- Scan cone -->
+              <line x1="385" y1="58" x2="340" y2="218" stroke="rgba(232,119,34,0.2)" stroke-width="0.8" stroke-dasharray="3 2"/>
+              <line x1="392" y1="58" x2="400" y2="218" stroke="rgba(232,119,34,0.3)" stroke-width="1" stroke-dasharray="3 2"/>
+              <line x1="399" y1="58" x2="460" y2="218" stroke="rgba(232,119,34,0.2)" stroke-width="0.8" stroke-dasharray="3 2"/>
+
+              <!-- ══ AI COMPUTE BOX — right side ══ -->
+              <g filter="url(#og3)">
+                <rect x="800" y="85" width="56" height="38" rx="5" fill="rgba(232,119,34,0.1)" stroke="#E87722" stroke-width="1.5"/>
+              </g>
+              <rect x="813" y="95" width="16" height="16" rx="2" fill="rgba(232,119,34,0.15)" stroke="#E87722" stroke-width="0.8"/>
+              <line x1="817" y1="95" x2="817" y2="91" stroke="#E87722" stroke-width="0.7"/>
+              <line x1="821" y1="95" x2="821" y2="91" stroke="#E87722" stroke-width="0.7"/>
+              <line x1="825" y1="95" x2="825" y2="91" stroke="#E87722" stroke-width="0.7"/>
+              <line x1="817" y1="111" x2="817" y2="115" stroke="#E87722" stroke-width="0.7"/>
+              <line x1="821" y1="111" x2="821" y2="115" stroke="#E87722" stroke-width="0.7"/>
+              <line x1="825" y1="111" x2="825" y2="115" stroke="#E87722" stroke-width="0.7"/>
+              <circle cx="842" cy="104" r="3" fill="#E87722" opacity="0.6"/>
+              <text x="828" y="136" text-anchor="middle" font-family="'Saira',sans-serif" font-size="11" fill="#FF9245" letter-spacing="0.08em" font-weight="700">AI EDGE</text>
+
+              <!-- ══ SIGNAL: Camera → Compute ══ -->
+              <line x1="414" y1="44" x2="800" y2="100" stroke="#E87722" stroke-width="1.2" stroke-dasharray="4 3"/>
+              <circle cx="607" cy="72" r="2" fill="#E87722" opacity="0.5"/>
+
+              <!-- ══ SIGNALS: Compute → Arm Joints ══ -->
+              <!-- To shoulder J1 -->
+              <line x1="800" y1="112" x2="472" y2="190" stroke="#E87722" stroke-width="1" stroke-dasharray="4 3" opacity="0.45"/>
+              <circle cx="472" cy="190" r="3.5" fill="#E87722" opacity="0.4"/>
+              <!-- To elbow J2 -->
+              <line x1="800" y1="108" x2="352" y2="105" stroke="#E87722" stroke-width="1" stroke-dasharray="4 3" opacity="0.45"/>
+              <circle cx="352" cy="105" r="3.5" fill="#E87722" opacity="0.4"/>
+              <!-- To wrist/gripper J3 -->
+              <line x1="800" y1="115" x2="572" y2="155" stroke="#E87722" stroke-width="1" stroke-dasharray="4 3" opacity="0.45"/>
+              <circle cx="572" cy="155" r="3.5" fill="#E87722" opacity="0.4"/>
+              <text x="828" y="152" text-anchor="middle" font-family="'Saira',sans-serif" font-size="10" fill="rgba(232,119,34,0.6)" letter-spacing="0.08em" font-weight="600">JOINT SIGNALS</text>
+
+              <!-- ══ TARVAN INTELLIGENCE LAYER — bottom banner ══ -->
+              <text x="460" y="278" text-anchor="middle" font-family="'Saira',sans-serif" font-size="14" fill="#E87722" letter-spacing="0.16em" font-weight="700">TARVAN INTELLIGENCE LAYER</text>
+              <text x="460" y="294" text-anchor="middle" font-family="'Saira',sans-serif" font-size="11" fill="rgba(255,255,255,0.5)" letter-spacing="0.2em" font-weight="600">PICK &amp; PLACE SYSTEM</text>
+            </svg>
+          </div>
+          <!-- Carousel dots -->
+          <div class="oem-carousel-dots">
+            <button class="oem-dot active" data-dot="0" aria-label="Slide 1: Production Line" aria-selected="true"></button>
+            <button class="oem-dot" data-dot="1" aria-label="Slide 2: Gantry System" aria-selected="false"></button>
+            <button class="oem-dot" data-dot="2" aria-label="Slide 3: Pick & Place" aria-selected="false"></button>
+            <button class="oem-carousel-pause" aria-label="Pause carousel" aria-pressed="false"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="4" height="10" rx="1"/><rect x="7" y="1" width="4" height="10" rx="1"/></svg></button>
+          </div>
+          </div>
+          <div class="oem-badge-slot" id="oem-badge"><svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="18.00,2.16 30.38,8.12 33.44,21.52 24.87,32.27 11.13,32.27 2.56,21.52 5.62,8.12" fill="#0A1628" stroke="rgba(232,119,34,0.45)" stroke-width="1"/><text x="18.0" y="17.748" text-anchor="middle" dominant-baseline="central" font-family="'Saira', sans-serif" font-weight="800" font-size="20" fill="#E87722" dy="0.02em">T</text></svg><div class="badge-text"><div class="badge-powered">Powered by</div><div class="badge-name">TARVAN</div><div class="badge-slogan">Intelligence That Moves Matter.</div></div></div>
+        </div>
+      </div>
+      <div class="oem-benefits-grid">
+        <div class="oem-benefit reveal">
+          <div class="oem-benefit-num">01</div>
+          <div>
+            <h3 class="oem-benefit-title">Plug-and-Play Integration</h3>
+            <div class="oem-benefit-desc">Defined BOM, mounting specs, IO signals, and commissioning checklists. Your engineering team integrates TARVAN in weeks, not months.</div>
+          </div>
+        </div>
+        <div class="oem-benefit reveal reveal-delay-1">
+          <div class="oem-benefit-num">02</div>
+          <div>
+            <h3 class="oem-benefit-title">Intelligence-Grade Differentiation</h3>
+            <div class="oem-benefit-desc">TARVAN helps OEMs position a higher-spec machine with on-device inference, process traceability, and defined latency targets. Commercial uplift depends on segment, throughput, and commissioning scope.</div>
+          </div>
+        </div>
+        <div class="oem-benefit reveal reveal-delay-2">
+          <div class="oem-benefit-num">03</div>
+          <div>
+            <h3 class="oem-benefit-title">Serviceable Intelligence Layer</h3>
+            <div class="oem-benefit-desc">Model calibration, commissioning support, and software maintenance turn the intelligence stack into a managed layer after install. Commercial terms can be defined per OEM program and support SLA.</div>
+          </div>
+        </div>
+        <div class="oem-benefit reveal reveal-delay-3">
+          <div class="oem-benefit-num">04</div>
+          <div>
+            <h3 class="oem-benefit-title">Compliance-Ready Audit Trail</h3>
+            <div class="oem-benefit-desc">Every decision logged. Compliance-ready for FSSAI, ISO, and export requirements. Your customers pass audits with data, not paperwork.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ CREDENTIALS ════════════ -->
+<section id="credentials">
+  <div class="container">
+    <div class="section-badge reveal">Credentials</div>
+    <h2 class="section-title reveal">Built on Institutional Depth</h2>
+    <p class="section-desc reveal">Research-backed, institutionally supported, and validated from day one.</p>
+    <div class="cred-grid">
+      <div class="cred-card reveal">
+        <div class="cred-card-label">Incubation &amp; Acceleration</div>
+        <div class="cred-item">IIT Kanpur — SIIC Incubation</div>
+        <div class="cred-item">NSRCEL — IIM Bangalore</div>
+        <div class="cred-item">ICAR — Central Institute of Subtropical Horticulture</div>
+        <div class="cred-item">MaDeIT — IIITDM Kancheepuram</div>
+        <div class="cred-item">CCS NIAM — Jaipur</div>
+        <div class="cred-item">DISQ — Digital Impact Square, TCS Foundation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FOUNDER ════════════ -->
+<section id="founder">
+  <div class="container">
+    <div class="section-badge reveal">Leadership</div>
+    <h2 class="section-title reveal">Engineering-Led from Day One</h2>
+    <div class="founder-layout">
+      <div class="founder-avatar reveal">
+        <img id="founder-photo" src="assets/Dr.Shanmugakumar_Photo.jpeg" alt="Dr. Shanmugakumar Murugesan"/>
+        <span id="founder-initials" class="founder-initials" style="display:none">SM</span>
+      </div>
+      <div>
+        <div class="founder-name reveal">Dr. Shanmugakumar Murugesan</div>
+        <div class="founder-title-text reveal">Founder &amp; CEO</div>
+        <p class="founder-credential reveal">Physical AI Systems Architect. Industrial vision, edge inference, and machine control.</p>
+        <p class="founder-bio reveal">Ph.D. in System Design from IIITDM Kancheepuram. M.Des. in Electronic Systems Design from IIITD&amp;M Kancheepuram. Building a vertically integrated Physical AI stack for industrial machines — from agri-processing to process automation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ CTA ════════════ -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-box reveal">
+      <div id="cta-logo" style="margin-bottom:24px;"><svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="32.00,3.84 54.02,14.44 59.45,38.27 44.22,57.37 19.78,57.37 4.55,38.27 9.98,14.44" fill="#0A1628" stroke="rgba(232,119,34,0.45)" stroke-width="0.5"/><text x="32.0" y="31.552" text-anchor="middle" dominant-baseline="central" font-family="'Saira', sans-serif" font-weight="800" font-size="36" fill="#E87722" dy="0.02em">T</text></svg></div>
+      <div class="section-badge" style="justify-content:center;">Start Building</div>
+      <h2 class="cta-title">Ready to Add Intelligence to Your Machine?</h2>
+      <p class="cta-desc">Every engagement begins with an Intelligence Upgrade Plan — a focused assessment of your machine, your data, and the path to production-grade intelligence.</p>
+      <div class="cta-actions">
+        <a href="mailto:connect@tarvan.ai" class="btn-primary">Talk to the Founder <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a href="#platform" class="btn-secondary">Explore the Platform</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand" id="footer-logo"><svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="16.00,1.92 27.01,7.22 29.73,19.13 22.11,28.69 9.89,28.69 2.27,19.13 4.99,7.22" fill="#0A1628" stroke="rgba(232,119,34,0.45)" stroke-width="1"/><text x="16.0" y="15.776" text-anchor="middle" dominant-baseline="central" font-family="'Saira', sans-serif" font-weight="800" font-size="18" fill="#E87722" dy="0.02em">T</text></svg><span class="footer-brand-wordmark">TARVAN</span></div>
+        <div class="footer-slogan">Intelligence That Moves Matter.</div>
+        <div class="footer-legal">Seventh Horse Agri-Tech Pvt. Ltd.<br>Chennai, India</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Platform</div>
+        <a href="#framework">Framework</a>
+        <a href="#platform">Technology</a>
+        <a href="#verticals">Verticals</a>
+        <a href="#oem">OEM Integration</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="#credentials">Credentials</a>
+        <a href="#founder">Leadership</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Connect</div>
+        <a href="mailto:connect@tarvan.ai">connect@tarvan.ai</a>
+        <a href="https://www.linkedin.com/company/tarvan" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 Seventh Horse Agri-Tech Pvt. Ltd. All rights reserved.</div>
+      <div class="footer-copy">Brand System v1.0 &middot; Sense &middot; Think &middot; Act</div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     JAVASCRIPT — UI behaviors only
+     Logo SVGs are now static inline markup (no innerHTML sinks)
+     ════════════════════════════════════════════════════════════ -->
+<script>
+// ═══ SCROLL REVEAL — IntersectionObserver ═══
+function initRevealAnimations() {
+  if (!('IntersectionObserver' in window)) {
+    return;
+  }
+
+  var revealElements = Array.from(document.querySelectorAll('.reveal'));
+  if (!revealElements.length) {
+    return;
+  }
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.documentElement.classList.add('js-reveal');
+  revealElements.forEach(function(el) {
+    observer.observe(el);
+  });
+}
+
+try {
+  initRevealAnimations();
+} catch (error) {
+  document.documentElement.classList.remove('js-reveal');
+}
+
+
+window.setTimeout(function() {
+  document.querySelectorAll('.hero-copy-stage, .hero-visual-stage, .scroll-indicator').forEach(function(el) {
+    if (window.getComputedStyle(el).opacity === '0') {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    }
+  });
+}, 1800);
+
+
+// ═══ HERO MOTION — staged idle drift + pointer parallax ═══
+var reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+var heroSection = document.getElementById('hero');
+var heroInView = false;
+var heroMotionFrame = 0;
+
+function setHeroActiveState(isActive) {
+  if (!heroSection) {
+    return;
+  }
+
+  heroInView = isActive;
+  heroSection.classList.toggle('hero-active', isActive);
+
+  if (isActive && motionState && !reduceMotionQuery.matches && !heroMotionFrame) {
+    heroMotionFrame = requestAnimationFrame(animateHeroMotion);
+  }
+}
+
+if (heroSection) {
+  var heroActivityObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      setHeroActiveState(entry.isIntersecting);
+    });
+  }, { threshold: 0.12 });
+
+  heroActivityObserver.observe(heroSection);
+}
+
+function animateHeroMotion(now) {
+  if (!heroSection || !heroInView || reduceMotionQuery.matches) {
+    heroMotionFrame = 0;
+    return;
+  }
+
+  var idleX = Math.sin(now / 2400) * 0.35;
+  var idleY = Math.cos(now / 3200) * 0.35;
+  var mix = now < motionState.interactingUntil ? 1 : 0;
+  var sourceX = idleX + motionState.pointerX * mix;
+  var sourceY = idleY + motionState.pointerY * mix;
+
+  var targetCopyX = sourceX * -10;
+  var targetCopyY = sourceY * -8;
+  var targetOrbitX = sourceX * 20;
+  var targetOrbitY = sourceY * 16;
+  var targetGridX = sourceX * 10;
+  var targetGridY = sourceY * 8;
+
+  motionState.currentCopyX += (targetCopyX - motionState.currentCopyX) * 0.08;
+  motionState.currentCopyY += (targetCopyY - motionState.currentCopyY) * 0.08;
+  motionState.currentOrbitX += (targetOrbitX - motionState.currentOrbitX) * 0.08;
+  motionState.currentOrbitY += (targetOrbitY - motionState.currentOrbitY) * 0.08;
+  motionState.currentGridX += (targetGridX - motionState.currentGridX) * 0.06;
+  motionState.currentGridY += (targetGridY - motionState.currentGridY) * 0.06;
+
+  heroSection.style.setProperty('--hero-copy-x', motionState.currentCopyX.toFixed(2) + 'px');
+  heroSection.style.setProperty('--hero-copy-y', motionState.currentCopyY.toFixed(2) + 'px');
+  heroSection.style.setProperty('--hero-orbit-x', motionState.currentOrbitX.toFixed(2) + 'px');
+  heroSection.style.setProperty('--hero-orbit-y', motionState.currentOrbitY.toFixed(2) + 'px');
+  heroSection.style.setProperty('--hero-grid-x', motionState.currentGridX.toFixed(2) + 'px');
+  heroSection.style.setProperty('--hero-grid-y', motionState.currentGridY.toFixed(2) + 'px');
+
+  heroMotionFrame = requestAnimationFrame(animateHeroMotion);
+}
+
+var motionState = null;
+
+if (heroSection && !reduceMotionQuery.matches) {
+  motionState = {
+    currentCopyX: 0,
+    currentCopyY: 0,
+    currentOrbitX: 0,
+    currentOrbitY: 0,
+    currentGridX: 0,
+    currentGridY: 0,
+    pointerX: 0,
+    pointerY: 0,
+    interactingUntil: 0
+  };
+
+  function clamp(value, min, max) {
+    return Math.min(max, Math.max(min, value));
+  }
+
+  function setHeroMotionTargets(event) {
+    var rect = heroSection.getBoundingClientRect();
+    var normalizedX = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
+    var normalizedY = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
+
+    motionState.pointerX = clamp(normalizedX, -1, 1);
+    motionState.pointerY = clamp(normalizedY, -1, 1);
+    motionState.interactingUntil = performance.now() + 1600;
+  }
+
+  heroSection.addEventListener('pointermove', setHeroMotionTargets);
+  heroSection.addEventListener('pointerleave', function() {
+    motionState.pointerX = 0;
+    motionState.pointerY = 0;
+  });
+
+  if (heroInView && !heroMotionFrame) {
+    heroMotionFrame = requestAnimationFrame(animateHeroMotion);
+  }
+}
+
+
+// ═══ FIXED NAV — frosted glass on scroll ═══
+window.addEventListener('scroll', function() {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+
+// ═══ MOBILE HAMBURGER MENU ═══
+var mainContent = document.getElementById('main-content');
+var pageFooter = document.querySelector('footer');
+var navToggle = document.getElementById('navToggle');
+var navDrawer = document.getElementById('navDrawer');
+var navClose = document.getElementById('navClose');
+var navLinks = document.getElementById('navLinks');
+var navLinkItems = Array.from(navLinks.querySelectorAll('a'));
+
+function setBackgroundInert(isInert) {
+  [mainContent, pageFooter].forEach(function(section) {
+    if (!section) {
+      return;
+    }
+
+    if ('inert' in section) {
+      section.inert = isInert;
+    }
+
+    if (isInert) {
+      section.setAttribute('aria-hidden', 'true');
+    } else {
+      section.removeAttribute('aria-hidden');
+    }
+  });
+}
+
+function setNavState(isOpen) {
+  var mobileNavActive = isOpen && window.innerWidth <= 900;
+
+  navToggle.classList.toggle('active', isOpen);
+  navDrawer.classList.toggle('open', mobileNavActive);
+  navToggle.setAttribute('aria-expanded', String(isOpen));
+  navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+  navToggle.tabIndex = mobileNavActive ? -1 : 0;
+  document.body.classList.toggle('nav-open', mobileNavActive);
+
+  if (mobileNavActive) {
+    navDrawer.setAttribute('role', 'dialog');
+    navDrawer.setAttribute('aria-modal', 'true');
+    navDrawer.setAttribute('aria-label', 'Site navigation');
+  } else {
+    navDrawer.removeAttribute('role');
+    navDrawer.removeAttribute('aria-modal');
+    navDrawer.removeAttribute('aria-label');
+  }
+
+  setBackgroundInert(mobileNavActive);
+}
+
+function closeNav(returnFocus) {
+  if (!navDrawer.classList.contains('open')) {
+    return;
+  }
+
+  setNavState(false);
+
+  if (returnFocus) {
+    navToggle.focus();
+  }
+}
+
+function openNav() {
+  setNavState(true);
+
+  if (window.innerWidth <= 900 && navLinkItems.length) {
+    navClose.focus();
+  }
+}
+
+navToggle.addEventListener('click', function() {
+  if (navDrawer.classList.contains('open')) {
+    closeNav(false);
+    return;
+  }
+
+  openNav();
+});
+
+navClose.addEventListener('click', function() {
+  closeNav(true);
+});
+
+navDrawer.addEventListener('click', function(event) {
+  if (event.target === navDrawer) {
+    closeNav(true);
+  }
+});
+
+// Close mobile menu on link click
+navLinkItems.forEach(function(link) {
+  link.addEventListener('click', function() {
+    closeNav(false);
+  });
+});
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Tab' && navDrawer.classList.contains('open') && window.innerWidth <= 900) {
+    var focusable = [navClose].concat(navLinkItems).filter(function(item) {
+      return item && !item.hasAttribute('disabled');
+    });
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+      return;
+    }
+
+    if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+      return;
+    }
+  }
+
+  if (event.key === 'Escape') {
+    closeNav(true);
+  }
+});
+
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 900) {
+    setNavState(false);
+  } else {
+    document.body.classList.toggle('nav-open', navDrawer.classList.contains('open'));
+  }
+});
+
+setNavState(false);
+
+
+// ═══ SMOOTH SCROLL for anchor links ═══
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+  anchor.addEventListener('click', function(e) {
+    var href = this.getAttribute('href');
+
+    if (!href || href === '#') {
+      return;
+    }
+
+    var target;
+
+    try {
+      target = document.querySelector(href);
+    } catch (error) {
+      return;
+    }
+
+    if (target) {
+      e.preventDefault();
+      var offset = 80; // account for fixed nav
+      var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: top, behavior: reduceMotion ? 'auto' : 'smooth' });
+    }
+  });
+});
+
+
+// ═══ FOUNDER PHOTO FALLBACK ═══
+(function() {
+  var photo = document.getElementById('founder-photo');
+  var initials = document.getElementById('founder-initials');
+  if (photo && initials) {
+    photo.addEventListener('error', function() {
+      photo.style.display = 'none';
+      initials.style.display = 'flex';
+    });
+  }
+})();
+
+// ═══ OEM DIAGRAM CAROUSEL (Accessible) ═══
+(function() {
+  var carousel = document.querySelector('.oem-carousel');
+  if (!carousel) return;
+
+  var slides = Array.from(carousel.querySelectorAll('.oem-slide'));
+  var dots = Array.from(carousel.querySelectorAll('.oem-dot'));
+  var pauseBtn = carousel.querySelector('.oem-carousel-pause');
+  if (slides.length < 2) return;
+
+  var current = 0;
+  var timer = null;
+  var paused = false;
+  var INTERVAL = 5000;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    dots[current].setAttribute('aria-selected', 'false');
+    current = index;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    dots[current].setAttribute('aria-selected', 'true');
+  }
+
+  function next() { goTo((current + 1) % slides.length); }
+
+  function startAuto() {
+    if (paused || reduceMotion) return;
+    stopAuto();
+    timer = setInterval(next, INTERVAL);
+  }
+
+  function stopAuto() {
+    if (timer) { clearInterval(timer); timer = null; }
+  }
+
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      goTo(parseInt(dot.getAttribute('data-dot'), 10));
+      if (!paused) startAuto();
+    });
+  });
+
+  // Pause button
+  if (pauseBtn) {
+    pauseBtn.addEventListener('click', function() {
+      paused = !paused;
+      pauseBtn.setAttribute('aria-pressed', String(paused));
+      pauseBtn.setAttribute('aria-label', paused ? 'Play carousel' : 'Pause carousel');
+      if (paused) {
+        stopAuto();
+        pauseBtn.innerHTML = '<svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><polygon points="2,1 11,6 2,11"/></svg>';
+      } else {
+        startAuto();
+        pauseBtn.innerHTML = '<svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="4" height="10" rx="1"/><rect x="7" y="1" width="4" height="10" rx="1"/></svg>';
+      }
+    });
+  }
+
+  // Pause on hover
+  carousel.addEventListener('mouseenter', stopAuto);
+  carousel.addEventListener('mouseleave', function() { if (!paused) startAuto(); });
+
+  // Pause on keyboard focus within carousel
+  carousel.addEventListener('focusin', stopAuto);
+  carousel.addEventListener('focusout', function() { if (!paused) startAuto(); });
+
+  // Don't auto-rotate if reduced motion
+  if (!reduceMotion) startAuto();
+})();
+</script>
+
+</body>
+</html>
