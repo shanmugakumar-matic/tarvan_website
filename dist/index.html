@@ -21,11 +21,9 @@
 <meta name="twitter:image" content="https://tarvan.ai/assets/og-card.png">
 <meta name="theme-color" content="#0A1628">
 <meta name="apple-mobile-web-app-title" content="TARVAN">
-<!-- Security headers -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; frame-src 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'none';">
-<meta http-equiv="X-Frame-Options" content="DENY">
+<!-- Security headers (primary enforcement via Cloudflare HTTP headers; meta tags as fallback) -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none';">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
 <link rel="canonical" href="https://tarvan.ai/">
 <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="./assets/favicon-32.png" type="image/png" sizes="32x32">
@@ -1841,9 +1839,9 @@ a:focus-visible, button:focus-visible,
           </div>
           <!-- Carousel dots -->
           <div class="oem-carousel-dots">
-            <button class="oem-dot active" data-dot="0" aria-label="Slide 1: Production Line" aria-selected="true"></button>
-            <button class="oem-dot" data-dot="1" aria-label="Slide 2: Gantry System" aria-selected="false"></button>
-            <button class="oem-dot" data-dot="2" aria-label="Slide 3: Pick & Place" aria-selected="false"></button>
+            <button class="oem-dot active" data-dot="0" aria-label="Slide 1: Production Line" aria-pressed="true"></button>
+            <button class="oem-dot" data-dot="1" aria-label="Slide 2: Gantry System" aria-pressed="false"></button>
+            <button class="oem-dot" data-dot="2" aria-label="Slide 3: Pick & Place" aria-pressed="false"></button>
             <button class="oem-carousel-pause" aria-label="Pause carousel" aria-pressed="false"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="4" height="10" rx="1"/><rect x="7" y="1" width="4" height="10" rx="1"/></svg></button>
           </div>
           </div>
@@ -2327,11 +2325,11 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
   function goTo(index) {
     slides[current].classList.remove('active');
     dots[current].classList.remove('active');
-    dots[current].setAttribute('aria-selected', 'false');
+    dots[current].setAttribute('aria-pressed', 'false');
     current = index;
     slides[current].classList.add('active');
     dots[current].classList.add('active');
-    dots[current].setAttribute('aria-selected', 'true');
+    dots[current].setAttribute('aria-pressed', 'true');
   }
 
   function next() { goTo((current + 1) % slides.length); }
