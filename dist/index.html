@@ -11,14 +11,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="TARVAN">
 <meta property="og:url" content="https://tarvan.ai/">
-<meta property="og:image" content="https://tarvan.ai/assets/og-card.png">
-<meta property="og:image:type" content="image/png">
+<meta property="og:image" content="https://tarvan.ai/assets/og-card.jpg">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="TARVAN — Intelligence That Moves Matter.">
 <meta name="twitter:description" content="Physical AI for industrial machines. From inspection to process automation — Sense. Think. Act. At production speed.">
-<meta name="twitter:image" content="https://tarvan.ai/assets/og-card.png">
+<meta name="twitter:image" content="https://tarvan.ai/assets/og-card.jpg">
 <meta name="theme-color" content="#0A1628">
 <meta name="apple-mobile-web-app-title" content="TARVAN">
 <!-- Security headers (primary enforcement via Cloudflare HTTP headers; meta tags as fallback) -->
@@ -59,9 +59,10 @@
   --navy-light: #132240;
   --orange: #E87722;
   --orange-dim: rgba(232, 119, 34, 0.15);
+  --orange-text: #FF9245; /* lighter orange for text <18px — passes WCAG AA on navy */
   --white: #E8ECF1;
   --gray: #B0BEC5;
-  --gray-dim: #5A6577;
+  --gray-dim: #7B8A9E;
   --surface: #0D1829;
   --border: rgba(255,255,255,0.06);
   --hero-copy-x: 0px;
@@ -352,7 +353,7 @@ nav.scrolled {
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 .hero-badge span {
   font-weight: 600; font-size: 12px; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--orange);
+  text-transform: uppercase; color: var(--orange-text);
 }
 
 /* Hero lockup — L1 Primary Horizontal Full */
@@ -588,7 +589,7 @@ section { padding: 120px 0; }
 .section-badge {
   display: inline-flex; align-items: center; gap: 8px;
   font-weight: 700; font-size: 11px; letter-spacing: 0.16em;
-  text-transform: uppercase; color: var(--orange); margin-bottom: 16px;
+  text-transform: uppercase; color: var(--orange-text); margin-bottom: 16px;
 }
 .section-badge::before {
   content: ''; width: 20px; height: 1.5px; background: var(--orange);
@@ -633,7 +634,7 @@ section { padding: 120px 0; }
   margin-bottom: 20px; color: var(--orange);
 }
 .sta-name {
-  font-family: 'Orbitron', sans-serif; font-weight: 700;
+  font-family: 'Saira', sans-serif; font-weight: 800;
   font-size: 22px; letter-spacing: 0.06em; color: var(--white); margin-bottom: 12px;
 }
 .sta-desc { font-weight: 400; font-size: 16px; color: var(--gray); line-height: 1.7; margin-bottom: 24px; }
@@ -641,7 +642,7 @@ section { padding: 120px 0; }
 .sta-spec { display: flex; justify-content: space-between; padding: 6px 0; font-size: 13px; }
 .sta-spec-label { color: var(--gray-dim); }
 .sta-spec-value {
-  color: var(--orange); font-weight: 600;
+  color: var(--orange-text); font-weight: 600;
   font-family: 'Saira', sans-serif; font-size: 12px;
 }
 @media (max-width: 900px) { .sta-grid { grid-template-columns: 1fr; } }
@@ -719,7 +720,7 @@ section { padding: 120px 0; }
 .vertical-card:hover::after { transform: scaleX(1); }
 .vc-phase {
   font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--orange); margin-bottom: 16px;
+  text-transform: uppercase; color: var(--orange-text); margin-bottom: 16px;
 }
 .vc-title { font-weight: 700; font-size: 22px; color: var(--white); margin-bottom: 8px; }
 .vc-desc { font-size: 16px; color: var(--gray); line-height: 1.6; margin-bottom: 20px; }
@@ -811,7 +812,7 @@ section { padding: 120px 0; }
 }
 .cred-card-label {
   font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--orange); margin-bottom: 16px;
+  text-transform: uppercase; color: var(--orange-text); margin-bottom: 16px;
 }
 .cred-item {
   font-size: 15px; color: var(--gray); padding: 6px 0;
@@ -1160,7 +1161,7 @@ a:focus-visible, button:focus-visible,
         </div>
         <p class="hero-desc reveal reveal-left reveal-delay-2">The Physical AI intelligence layer for industrial OEMs. Real-time perception, edge inference, and deterministic actuation — for any machine that needs to see, decide, and act at production speed.</p>
         <div class="hero-actions reveal reveal-scale reveal-delay-3">
-          <a href="#cta" class="btn-primary">Start a Pilot <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a href="#cta" class="btn-primary">Start a Pilot <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
           <a href="#framework" class="btn-secondary">See How It Works</a>
         </div>
       </div>
@@ -1931,7 +1932,7 @@ a:focus-visible, button:focus-visible,
       <h2 class="cta-title">Ready to Add Intelligence to Your Machine?</h2>
       <p class="cta-desc">Every engagement begins with an Intelligence Upgrade Plan — a focused assessment of your machine, your data, and the path to production-grade intelligence.</p>
       <div class="cta-actions">
-        <a href="mailto:connect@tarvan.ai" class="btn-primary">Talk to the Founder <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a href="mailto:connect@tarvan.ai" class="btn-primary">Talk to the Founder <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         <a href="#platform" class="btn-secondary">Explore the Platform</a>
       </div>
     </div>
@@ -1940,9 +1941,9 @@ a:focus-visible, button:focus-visible,
 </main>
 
 <!-- ════════════ FOOTER ════════════ -->
-<footer>
+<footer aria-label="Site footer">
   <div class="container">
-    <div class="footer-top">
+    <nav aria-label="Footer navigation"><div class="footer-top">
       <div>
         <div class="footer-brand" id="footer-logo"><svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="16.00,1.92 27.01,7.22 29.73,19.13 22.11,28.69 9.89,28.69 2.27,19.13 4.99,7.22" fill="#0A1628" stroke="rgba(232,119,34,0.45)" stroke-width="1"/><text x="16.0" y="15.776" text-anchor="middle" dominant-baseline="central" font-family="'Saira', sans-serif" font-weight="800" font-size="18" fill="#E87722" dy="0.02em">T</text></svg><span class="footer-brand-wordmark">TARVAN</span></div>
         <div class="footer-slogan">Intelligence That Moves Matter.</div>
@@ -1965,10 +1966,10 @@ a:focus-visible, button:focus-visible,
         <a href="mailto:connect@tarvan.ai">connect@tarvan.ai</a>
         <a href="https://www.linkedin.com/company/tarvan" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
-    </div>
+    </div></nav>
     <div class="footer-bottom">
       <div class="footer-copy">&copy; 2026 Seventh Horse Agri-Tech Pvt. Ltd. All rights reserved.</div>
-      <div class="footer-copy">Brand System v1.0 &middot; Sense &middot; Think &middot; Act</div>
+      <div class="footer-copy">Sense &middot; Think &middot; Act</div>
     </div>
   </div>
 </footer>
