@@ -19,6 +19,7 @@
 <meta name="twitter:title" content="TARVAN — Intelligence That Moves Matter.">
 <meta name="twitter:description" content="Physical AI for industrial machines. From inspection to process automation — Sense. Think. Act. At production speed.">
 <meta name="twitter:image" content="https://tarvan.ai/assets/og-card.jpg">
+<meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0A1628">
 <meta name="apple-mobile-web-app-title" content="TARVAN">
 <!-- Security headers (primary enforcement via Cloudflare HTTP headers; meta tags as fallback) -->
@@ -30,19 +31,12 @@
 <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" sizes="180x180">
 <!-- Self-hosted fonts — zero third-party requests -->
 <style>
-@font-face { font-family: 'Orbitron'; font-style: normal; font-weight: 400; font-display: swap; src: url('./assets/fonts/orbitron-latin-400-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Orbitron'; font-style: normal; font-weight: 500; font-display: swap; src: url('./assets/fonts/orbitron-latin-500-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Orbitron'; font-style: normal; font-weight: 600; font-display: swap; src: url('./assets/fonts/orbitron-latin-600-normal.woff2') format('woff2'); }
 @font-face { font-family: 'Orbitron'; font-style: normal; font-weight: 700; font-display: swap; src: url('./assets/fonts/orbitron-latin-700-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Orbitron'; font-style: normal; font-weight: 800; font-display: swap; src: url('./assets/fonts/orbitron-latin-800-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Orbitron'; font-style: normal; font-weight: 900; font-display: swap; src: url('./assets/fonts/orbitron-latin-900-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Saira'; font-style: normal; font-weight: 300; font-display: swap; src: url('./assets/fonts/saira-latin-300-normal.woff2') format('woff2'); }
 @font-face { font-family: 'Saira'; font-style: normal; font-weight: 400; font-display: swap; src: url('./assets/fonts/saira-latin-400-normal.woff2') format('woff2'); }
 @font-face { font-family: 'Saira'; font-style: normal; font-weight: 500; font-display: swap; src: url('./assets/fonts/saira-latin-500-normal.woff2') format('woff2'); }
 @font-face { font-family: 'Saira'; font-style: normal; font-weight: 600; font-display: swap; src: url('./assets/fonts/saira-latin-600-normal.woff2') format('woff2'); }
 @font-face { font-family: 'Saira'; font-style: normal; font-weight: 700; font-display: swap; src: url('./assets/fonts/saira-latin-700-normal.woff2') format('woff2'); }
 @font-face { font-family: 'Saira'; font-style: normal; font-weight: 800; font-display: swap; src: url('./assets/fonts/saira-latin-800-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Saira'; font-style: normal; font-weight: 900; font-display: swap; src: url('./assets/fonts/saira-latin-900-normal.woff2') format('woff2'); }
 </style>
 
 <style>
@@ -585,7 +579,7 @@ nav.scrolled {
 /* ═══════════════════════════════════════
    SECTION COMMON
    ═══════════════════════════════════════ */
-section { padding: 120px 0; }
+section { padding: 80px 0; }
 .section-badge {
   display: inline-flex; align-items: center; gap: 8px;
   font-weight: 700; font-size: 11px; letter-spacing: 0.16em;
@@ -759,7 +753,8 @@ section { padding: 120px 0; }
 .oem-carousel { position: relative; min-height: 310px; }
 .oem-slide { position: absolute; top: 0; left: 0; width: 100%; opacity: 0; transition: opacity 0.8s ease; pointer-events: none; overflow-x: auto; }
 .oem-slide.active { position: relative; opacity: 1; pointer-events: auto; }
-.oem-carousel-dots { display: flex; justify-content: center; gap: 10px; margin-top: 12px; }
+.oem-carousel-controls { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 16px; }
+.oem-carousel-dots { display: flex; align-items: center; gap: 10px; }
 .oem-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.15); border: none; cursor: pointer; padding: 0; transition: background 0.3s; }
 .oem-dot.active { background: #E87722; }
 .oem-badge-slot {
@@ -819,6 +814,15 @@ section { padding: 120px 0; }
   border-bottom: 1px solid var(--border);
 }
 .cred-item:last-child { border-bottom: none; }
+.cred-item a {
+  color: var(--gray); text-decoration: none; transition: color 0.3s;
+  display: flex; align-items: center; gap: 6px;
+}
+.cred-item a:hover { color: var(--orange); }
+.cred-item a::after {
+  content: '\2197'; font-size: 11px; opacity: 0.4; transition: opacity 0.3s;
+}
+.cred-item a:hover::after { opacity: 1; }
 @media (max-width: 768px) { .cred-grid { grid-template-columns: 1fr; } }
 
 /* ═══════════════════════════════════════
@@ -862,11 +866,11 @@ section { padding: 120px 0; }
 /* ═══════════════════════════════════════
    CTA
    ═══════════════════════════════════════ */
-#cta { background: var(--navy); padding: 120px 0; }
+#cta { background: var(--navy); padding: 64px 0; }
 .cta-box {
   background: linear-gradient(135deg, var(--navy-mid), var(--navy-light));
   border: 2px solid var(--orange); border-radius: 20px;
-  padding: 80px 60px; text-align: center;
+  padding: 56px 60px; text-align: center;
   position: relative; overflow: hidden;
 }
 .cta-box::before {
@@ -995,6 +999,14 @@ a:focus-visible, button:focus-visible,
 .oem-carousel-pause:hover { border-color: #E87722; }
 .oem-carousel-pause svg { width: 12px; height: 12px; fill: rgba(255,255,255,0.5); }
 .oem-carousel-pause[aria-pressed="true"] svg { fill: #E87722; }
+.oem-carousel-arrow {
+  width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05); cursor: pointer; display: flex;
+  align-items: center; justify-content: center; padding: 0; transition: border-color 0.3s, background 0.3s;
+}
+.oem-carousel-arrow:hover { border-color: #E87722; background: rgba(232,119,34,0.1); }
+.oem-carousel-arrow svg { width: 14px; height: 14px; fill: none; stroke: rgba(255,255,255,0.6); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.oem-carousel-arrow:hover svg { stroke: #E87722; }
 
 /* ═══════════════════════════════════════
    AUDIT FIXES — Small Mobile (<480px) (P2)
@@ -1838,12 +1850,16 @@ a:focus-visible, button:focus-visible,
               <text x="460" y="294" text-anchor="middle" font-family="'Saira',sans-serif" font-size="11" fill="rgba(255,255,255,0.5)" letter-spacing="0.2em" font-weight="600">PICK &amp; PLACE SYSTEM</text>
             </svg>
           </div>
-          <!-- Carousel dots -->
-          <div class="oem-carousel-dots">
-            <button class="oem-dot active" data-dot="0" aria-label="Slide 1: Production Line" aria-pressed="true"></button>
-            <button class="oem-dot" data-dot="1" aria-label="Slide 2: Gantry System" aria-pressed="false"></button>
-            <button class="oem-dot" data-dot="2" aria-label="Slide 3: Pick & Place" aria-pressed="false"></button>
+          <!-- Carousel controls: prev + dots + pause + next -->
+          <div class="oem-carousel-controls">
+            <button class="oem-carousel-arrow oem-carousel-prev" aria-label="Previous slide"><svg viewBox="0 0 16 16"><path d="M10 3 L5 8 L10 13"/></svg></button>
+            <div class="oem-carousel-dots">
+              <button class="oem-dot active" data-dot="0" aria-label="Slide 1: Production Line" aria-pressed="true"></button>
+              <button class="oem-dot" data-dot="1" aria-label="Slide 2: Gantry System" aria-pressed="false"></button>
+              <button class="oem-dot" data-dot="2" aria-label="Slide 3: Pick & Place" aria-pressed="false"></button>
+            </div>
             <button class="oem-carousel-pause" aria-label="Pause carousel" aria-pressed="false"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="4" height="10" rx="1"/><rect x="7" y="1" width="4" height="10" rx="1"/></svg></button>
+            <button class="oem-carousel-arrow oem-carousel-next" aria-label="Next slide"><svg viewBox="0 0 16 16"><path d="M6 3 L11 8 L6 13"/></svg></button>
           </div>
           </div>
           <div class="oem-badge-slot" id="oem-badge"><svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="18.00,2.16 30.38,8.12 33.44,21.52 24.87,32.27 11.13,32.27 2.56,21.52 5.62,8.12" fill="#0A1628" stroke="rgba(232,119,34,0.45)" stroke-width="1"/><text x="18.0" y="17.748" text-anchor="middle" dominant-baseline="central" font-family="'Saira', sans-serif" font-weight="800" font-size="20" fill="#E87722" dy="0.02em">T</text></svg><div class="badge-text"><div class="badge-powered">Powered by</div><div class="badge-name">TARVAN</div><div class="badge-slogan">Intelligence That Moves Matter.</div></div></div>
@@ -1892,12 +1908,12 @@ a:focus-visible, button:focus-visible,
     <div class="cred-grid">
       <div class="cred-card reveal">
         <div class="cred-card-label">Incubation &amp; Acceleration</div>
-        <div class="cred-item">IIT Kanpur — SIIC Incubation</div>
-        <div class="cred-item">NSRCEL — IIM Bangalore</div>
-        <div class="cred-item">ICAR — Central Institute of Subtropical Horticulture</div>
-        <div class="cred-item">MaDeIT — IIITDM Kancheepuram</div>
-        <div class="cred-item">CCS NIAM — Jaipur</div>
-        <div class="cred-item">DISQ — Digital Impact Square, TCS Foundation</div>
+        <div class="cred-item"><a href="https://siicincubator.com/" target="_blank" rel="noopener noreferrer">IIT Kanpur — SIIC Incubation</a></div>
+        <div class="cred-item"><a href="https://nsrcel.org/" target="_blank" rel="noopener noreferrer">NSRCEL — IIM Bangalore</a></div>
+        <div class="cred-item"><a href="https://www.cish.org.in/" target="_blank" rel="noopener noreferrer">ICAR — Central Institute of Subtropical Horticulture</a></div>
+        <div class="cred-item"><a href="https://www.madeit.iiitdm.ac.in/" target="_blank" rel="noopener noreferrer">MaDeIT — IIITDM Kancheepuram</a></div>
+        <div class="cred-item"><a href="https://ccsniam.gov.in/" target="_blank" rel="noopener noreferrer">CCS NIAM — Jaipur</a></div>
+        <div class="cred-item"><a href="https://www.digitalimpactsquare.com/" target="_blank" rel="noopener noreferrer">DISQ — Digital Impact Square, TCS Foundation</a></div>
       </div>
     </div>
   </div>
@@ -1916,6 +1932,7 @@ a:focus-visible, button:focus-visible,
       <div>
         <div class="founder-name reveal">Dr. Shanmugakumar Murugesan</div>
         <div class="founder-title-text reveal">Founder &amp; CEO</div>
+        <div class="founder-location reveal" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--gray-dim);margin-bottom:12px;letter-spacing:0.04em;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--orange);flex-shrink:0;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Chennai, India</div>
         <p class="founder-credential reveal">Physical AI Systems Architect. Industrial vision, edge inference, and machine control.</p>
         <p class="founder-bio reveal">Ph.D. in System Design from IIITDM Kancheepuram. M.Des. in Electronic Systems Design from IIITD&amp;M Kancheepuram. Building a vertically integrated Physical AI stack for industrial machines — from agri-processing to process automation.</p>
       </div>
@@ -2315,6 +2332,8 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
   var slides = Array.from(carousel.querySelectorAll('.oem-slide'));
   var dots = Array.from(carousel.querySelectorAll('.oem-dot'));
   var pauseBtn = carousel.querySelector('.oem-carousel-pause');
+  var prevBtn = carousel.querySelector('.oem-carousel-prev');
+  var nextBtn = carousel.querySelector('.oem-carousel-next');
   if (slides.length < 2) return;
 
   var current = 0;
@@ -2334,6 +2353,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
   }
 
   function next() { goTo((current + 1) % slides.length); }
+  function prev() { goTo((current - 1 + slides.length) % slides.length); }
 
   function startAuto() {
     if (paused || reduceMotion) return;
@@ -2351,6 +2371,14 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       if (!paused) startAuto();
     });
   });
+
+  // Prev/Next arrow buttons
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function() { prev(); if (!paused) startAuto(); });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function() { next(); if (!paused) startAuto(); });
+  }
 
   // Pause button
   if (pauseBtn) {
